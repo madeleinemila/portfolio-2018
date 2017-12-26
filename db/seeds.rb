@@ -1,7 +1,7 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Keystroke.destroy_all
+
+k1 = Keystroke.create :pulsed_at => "2017-12-21 10:00:29", :total => "89216", :country => "Australia"
+
+k2 = Keystroke.create :pulsed_at => "2017-12-22 10:00:14", :total => "107453", :country => "Australia"
+
+k3 = Keystroke.create :pulsed_at => "2017-12-25 10:51:49", :total => "113801", :country => "Australia"

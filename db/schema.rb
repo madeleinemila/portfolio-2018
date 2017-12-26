@@ -16,9 +16,9 @@ ActiveRecord::Schema.define(version: 20171223113427) do
   enable_extension "plpgsql"
 
   create_table "keystrokes", force: :cascade do |t|
-    t.date "pulse_date"
+    t.datetime "pulsed_at"
     t.bigint "total"
-    t.integer "average"
+    t.string "country"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

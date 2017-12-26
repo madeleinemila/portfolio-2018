@@ -1,9 +1,9 @@
 class CreateKeystrokes < ActiveRecord::Migration[5.1]
   def change
     create_table :keystrokes do |t|
-      t.date :pulse_date
+      t.timestamp :pulsed_at
       t.bigint :total
-      t.integer :average
+      t.string :country
 
       t.timestamps
     end
