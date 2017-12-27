@@ -33,6 +33,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'httparty'
 gem 'pry-rails'
 
+gem 'sprockets'
+gem 'sprockets-es6'
+
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
