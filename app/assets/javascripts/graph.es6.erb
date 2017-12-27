@@ -1,11 +1,16 @@
+// TODO add jquery page ready thing
+
 function setup() {
   const graph = createCanvas(640, 480); // create canvas
   graph.parent('graph');  // then allocate to parent div
 
-  background(0);
+  background(125);
   fill(255);
 }
 
 function draw() {
-  ellipse(50, 50, 80, 80);
+  textSize(16);
+  text(<%= Keystroke.calc_avg_all %>, 10, 90);
+
+  
 }
