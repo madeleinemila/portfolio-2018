@@ -13,7 +13,7 @@ class PagesController < ApplicationController
     Keystroke.all.each_with_index do |k, i|
       next if i == 0
       @avg_prev.push( Keystroke.calc_avg_prev i )
-    end
+    end #PUT THIS INTO MODEL...
 
   end
 end

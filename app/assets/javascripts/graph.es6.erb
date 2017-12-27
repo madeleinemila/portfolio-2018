@@ -1,5 +1,3 @@
-// TODO add jquery page ready thing
-
 function setup() {
   const graph = createCanvas(640, 480); // create canvas
   graph.parent('graph');  // then allocate to parent div
@@ -11,6 +9,8 @@ function setup() {
 function draw() {
   textSize(16);
   text(<%= Keystroke.calc_avg_all %>, 10, 90);
+  // AND CALL NEW METHOD HERE FOR PREV AVGS
 
-  
 }
+
+// could put in a doc ready with instance p5 method cf

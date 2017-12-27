@@ -32,7 +32,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'httparty'
 gem 'pry-rails'
-
+gem 'jquery-rails'
 gem 'sprockets'
 gem 'sprockets-es6'
 
