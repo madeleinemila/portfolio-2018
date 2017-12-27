@@ -37,16 +37,23 @@ class Keystroke < ApplicationRecord
 
   end
 
-  def self.calc_mean
-    start_time = Keystroke.first.pulsed_at
-    end_time = Keystroke.last.pulsed_at
+  def self.calc_avg start_time, end_time, start_keys, end_keys
     seconds = end_time - start_time
-    start_keys = Keystroke.first.total
-    end_keys = Keystroke.last.total
-    mean = (end_keys - start_keys) / (seconds / 60 / 60 / 24) # TODO check if right
+    mean = (end_keys - start_keys) / (seconds / 60 / 60 / 24)
   end
 
+  def self.calc_avg_all
+    self.calc_avg(
+        Keystroke.first.pulsed_at, Keystroke.last.pulsed_at, # timestamps
+        Keystroke.first.total, Keystroke.last.total)  # num keys
+  end
 
+  def self.calc_avg_prev
+    self.calc_avg(
+        Keystroke.offset(1).last.pulsed_at, # second last timestamp
+        Keystroke.last.pulsed_at, # last timestamp
+        Keystroke.offset(1).last.total, Keystroke.last.total) # num keys
+  end
 
 
 end # end class
