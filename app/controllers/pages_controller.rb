@@ -1,22 +1,24 @@
 class PagesController < ApplicationController
   def home
 
-    # Keystroke.update_data
+    Keystroke.update_data
 
     @avg_all = Keystroke.calc_avg_all
 
-    @avg_prev = Keystroke.calc_avg_prev
+    @avg_prev = Keystroke.calc_avg_prev 1
+    @avg_prev_2 = Keystroke.calc_avg_prev 2
+    @avg_prev_3 = Keystroke.calc_avg_prev 3
 
-    # calc how many days of data
-
-    # could have....
-    # daily averages persisted as own table...
-    #OR
-    # recalc each time...
-    #easier to persist them.... no maybe not,
+    # first prev = 2719.004917558577
+    # second prev = 2091
+    # third = 18240
 
 
-    # average is difference between this and prev one, divided to get avg/day
+    @avg_prev = []
+    Keystroke.all.each_with_index do |k, i|
+      next if i == 0
+      @avg_prev.push( Keystroke.calc_avg_prev i )
+    end
 
   end
 end

@@ -2,4 +2,6 @@
 
 <p>average of everything: <%= @avg_all %></p>
 
-<p>average of prev period: <%= @avg_prev %></p>
+<% @avg_prev.each do |a| %>
+  <p><%= a %></p>
+<% end %>

@@ -48,11 +48,11 @@ class Keystroke < ApplicationRecord
         Keystroke.first.total, Keystroke.last.total)  # num keys
   end
 
-  def self.calc_avg_prev
+  def self.calc_avg_prev i
     self.calc_avg(
-        Keystroke.offset(1).last.pulsed_at, # second last timestamp
-        Keystroke.last.pulsed_at, # last timestamp
-        Keystroke.offset(1).last.total, Keystroke.last.total) # num keys
+        Keystroke.offset(i).last.pulsed_at, # second last timestamp
+        Keystroke.offset(i - 1).last.pulsed_at, # last timestamp
+        Keystroke.offset(i).last.total, Keystroke.offset(i - 1).last.total) # num keys
   end
 
 
