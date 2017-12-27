@@ -9,8 +9,10 @@ function setup() {
 function draw() {
   textSize(16);
   text(<%= Keystroke.calc_avg_all %>, 10, 90);
-  // AND CALL NEW METHOD HERE FOR PREV AVGS
-
+  const avgPrev = <%= Keystroke.calc_avg_prev_array %>;
+  for (let i = 0; i < avgPrev.length; i++) {
+    text(avgPrev[i], 10, 90 + 30 * (i + 1));
+  }
 }
 
 // could put in a doc ready with instance p5 method cf

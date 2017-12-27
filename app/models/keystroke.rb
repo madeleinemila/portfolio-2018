@@ -11,6 +11,7 @@
 #
 
 class Keystroke < ApplicationRecord
+
   def self.update_data
 
     @response = HTTParty.get('http://api.whatpulse.org/user.php?user=itsmadd&format=json')
@@ -55,5 +56,13 @@ class Keystroke < ApplicationRecord
         Keystroke.offset(i).last.total, Keystroke.offset(i - 1).last.total) # num keys
   end
 
+  def self.calc_avg_prev_array
+    @avg_prev = []
+    Keystroke.all.each_with_index do |k, i|
+      next if i == 0
+      @avg_prev.push( Keystroke.calc_avg_prev i )
+    end
+    @avg_prev
+  end
 
 end # end class
