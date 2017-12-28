@@ -1,13 +1,36 @@
 let avgArray, avgArraySorted, avgRecent, avgAll;
-const delta = 40;
+let yCenter, yLower, randomTest;
+const delta = 40; // used during test
+const deltas = [];
+
+
+// ******* Helper Functions ****************************************************
+
+function mapCenter( value ) {
+  return map(  // ** p5 map - map to a new range
+    value,
+    0, avgArraySorted[ avgArraySorted.length - 1 ], // original range // TODO get rid of sorted and use max
+    height, 20
+  ); // mapped range, reversed for natural y axis w 0 at bottom, but not all the way to 0 to avoid graphic cut off
+}
+
+function mapGraph( value ) {
+  return map(
+    value,
+    0, avgArraySorted[ avgArraySorted.length - 1 ], // original range // TODO
+    0, height/2
+  );
+}
+
+
+// *******           SETUP           *******************************************
 
 function setup() {
-  const graph = createCanvas(window.innerWidth, 240); // create canvas
+  const graph = createCanvas(displayWidth, 240); // create canvas
   graph.parent('graph');  // then allocate to parent div
 
 
   // **** init display settings ***********
-  background(125);
   noFill();
   stroke(255, 120);
   strokeWeight(3);
@@ -18,79 +41,69 @@ function setup() {
   avgArraySorted = avgArray.slice().sort((a, b) => a - b ); // sort numerically
   avgRecent = avgArray[ avgArray.length - 1 ];
   avgAll = <%= Keystroke.calc_avg_all %>;
-}
-
-
-
-function mapGraph( value ) {
-  return map(  // ** p5 map - map to a new range
-    value,
-    avgArraySorted[0], avgArraySorted[ avgArraySorted.length - 1 ], // original range
-    10, (height / 2) - 10 );                                        // mapped range
-}
-
-
-
-function draw() {
-  background(125);
-  // textSize(16);
-  // text(avgAll, 10, 90);
+  yCenter = mapCenter( avgAll );
+  yLower = height - yCenter;
+  console.log(yLower);
 
   // CONVERT DB VALUES INTO DELTAS
+  avgArray.forEach((a) => {
+    const v = mapGraph( a );
+    deltas.push( v );
+  });
 
-  mapGraph();
+  // randomTest
+  randomTest = random( deltas[2] );
+}
+
+
+
+
+// *******            DRAW           *******************************************
+
+function draw() {
+  // background(4, 225, 133, 0);  // redraw background each frame
+  clear();
+
+  // mapGraph();
 
 
   // GRAPHING
-  const mid = mapGraph( avgAll );
 
-  // line( 0, mid, width, mid );
-  line( 0, height/2, width, height/2 );
+
+  line( 0, yCenter, width, yCenter );
 
   beginShape();
-  curveVertex(0,  height/2);
-  curveVertex(0,  height/2);
-  curveVertex(width*1/4,  height/2 + delta);
-  curveVertex(width*2/4,  height/2 - delta);
-  curveVertex(width*3/4,  height/2 + delta);
-  curveVertex(width, height/2);
-  curveVertex(width, height/2);
+  curveVertex(0,  yCenter);
+  curveVertex(0,  yCenter);
+  curveVertex(width*1/4,  yCenter + deltas[0]);
+  curveVertex(width*2/4,  yCenter - deltas[0]);
+  curveVertex(width*3/4,  yCenter + deltas[0]);
+  curveVertex(width, yCenter);
+  curveVertex(width, yCenter);
   endShape();
 
   beginShape();
-  curveVertex(0,  height/2);
-  curveVertex(0,  height/2);
-  curveVertex(width*1/5,  height/2 + delta/2);
-  curveVertex(width*2/5,  height/2 - delta/2);
-  curveVertex(width*3/5,  height/2 + delta/2);
-  curveVertex(width*4/5,  height/2 + delta/2);
-  curveVertex(width, height/2);
-  curveVertex(width, height/2);
+  curveVertex(0,  yCenter);
+  curveVertex(0,  yCenter);
+  curveVertex(width*1/5,  yCenter + deltas[1]);
+  curveVertex(width*2/5,  yCenter - deltas[1]);
+  curveVertex(width*3/5,  yCenter + deltas[1]);
+  curveVertex(width*4/5,  yCenter + deltas[1]);
+  curveVertex(width, yCenter);
+  curveVertex(width, yCenter);
   endShape();
-
-  //beginShape();
-  //curveVertex(0,  height/2);
-  //curveVertex(0,  height/2);
-  //curveVertex(width*1/6,  height/2 + delta*1.2);
-  //curveVertex(width*2/6,  height/2 - delta*1.2);
-  //curveVertex(width*3/6,  height/2 + delta*1.2);
-  //curveVertex(width*4/6,  height/2 + delta*1.2);
-  //curveVertex(width*5/6,  height/2 + delta*1.2);
-  //curveVertex(width, height/2);
-  //curveVertex(width, height/2);
-  //endShape();
 
 
   beginShape();
-  curveVertex(0,  height/2);
-  curveVertex(0,  height/2);
-  curveVertex(width*1/6,  height/2 + delta*1.2);
-  curveVertex(width*2/6,  height/2 - delta*1.2);
-  curveVertex(width*3/6,  height/2 + delta*1.2);
-  curveVertex(width*4/6,  height/2 - delta*1.2);
-  curveVertex(width*5/6,  height/2 + delta*1.2);
-  curveVertex(width, height/2);
-  curveVertex(width, height/2);
+  curveVertex(0,  yCenter);
+  curveVertex(0,  yCenter);
+  curveVertex(width*1/6,  yCenter + (yLower-10));
+  curveVertex(width*2/6,  yCenter - randomTest);
+  curveVertex(width*3/6,  yCenter + (yLower-10));
+  curveVertex(width*4/6,  yCenter - deltas[2]);
+  curveVertex(width*5/6,  yCenter + (yLower-10));
+  curveVertex(width, yCenter);
+  curveVertex(width, yCenter);
   endShape();
 
 

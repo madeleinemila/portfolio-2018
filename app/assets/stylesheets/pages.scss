@@ -1,3 +1,77 @@
-// Place all the styles related to the Pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+///////////////////////
+//     VARIABLES     //
+///////////////////////
+
+$nav-margin: 40px;
+
+
+///////////////////////
+//       CSS         //
+///////////////////////
+
+html, body {
+  height: 100vh;
+}
+
+body {
+  // background-color: rgb(4, 225, 133);
+  font-family: 'Futura', sans-serif;
+  font-weight: 300;
+  letter-spacing: 3px;
+  color: white;
+
+  // GRADIENTS
+  // option 1
+  // background: #00a186;
+  // background: -moz-linear-gradient(top, #00a186 0%, #2989d8 50%, #00a186 100%);
+  // background: -webkit-linear-gradient(top, #00a186 0%,#2989d8 50%,#00a186 100%);
+  // background: linear-gradient(to bottom, #00a186 0%,#2989d8 50%,#00a186 100%);
+  // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00a186', endColorstr='#00a186',GradientType=0 );
+
+  // option 2
+  background: #23548A;
+  background: -moz-linear-gradient(top, #00eab3 0%, #23538a 100%);
+  background: -webkit-linear-gradient(top, #00eab3 0%,#23538a 100%);
+  background: linear-gradient(to bottom, #00eab3 0%,#23538a 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00eab3', endColorstr='#23538a',GradientType=0 );
+
+  background-repeat: no-repeat;
+}
+
+h1 {
+  font-weight: 100;
+  text-align: center;
+  margin-top: 100px;
+  letter-spacing: 5px;
+}
+
+h2 {
+  @extend h1;
+  font-size: 16px;
+  margin-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 15px;
+}
+
+
+a.home-nav {
+  display: block;
+  height: 100px;
+  line-height: 100px;
+  width: 100px;
+  margin: 0 auto;
+  margin-top: $nav-margin;
+  border-radius: 50%;
+  border: 2px white solid;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  text-decoration: none;
+  text-align: center;
+}
+
+a.lower-nav {
+  position: absolute;
+  bottom: $nav-margin;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
