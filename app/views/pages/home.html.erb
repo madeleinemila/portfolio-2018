@@ -1,13 +1,32 @@
-<a class="home-nav" href="#">about</a>
-<h1>MADELEINE MILASAS</h1>
-<h2>Full Stack Web Developer</h2>
+<div id="about-container">
+  <h1>about</h1>
+  <a class="home-nav lower-nav" href="/">home</a>
+</div>
 
-<div id="graph"></div>
 
-<!-- <p>average of everything: <%= @avg_all %></p> -->
+<div id="home-container">
+  <a class="home-nav" href="/about">
+    <p class="nav-arrow">&circ;</p>
+    <p>about</p>
+  </a>
+  <h1>MADELEINE MILASAS</h1>
+  <h2>Full Stack Web Developer</h2>
 
-<!-- <% @avg_prev.each do |a| %>
-  <p><%= a %></p>
-<% end %> -->
+  <div id="graph"></div>
 
-<a class="home-nav lower-nav" href="#">work</a>
+  <!-- <p>average of everything: <%= @avg_all %></p>
+
+  <% @avg_prev.each do |a| %>
+    <p><%= a %></p>
+  <% end %> -->
+
+  <a class="home-nav lower-nav" href="/work">
+    <p>work</p>
+    <p class="nav-arrow">&caron;</p>
+  </a>
+</div>
+
+<div id="work-container">
+  <a class="home-nav" href="/">home</a>
+  <h1>work</h1>
+</div>

@@ -107,4 +107,17 @@ function draw() {
   endShape();
 
 
+  beginShape();
+  curveVertex(0,  yCenter);
+  curveVertex(0,  yCenter);
+  curveVertex(width*1/6,  yCenter + (yLower-10));
+  curveVertex(width*2/6,  yCenter - randomTest);
+  curveVertex(width*3/6,  yCenter + (yLower-10));
+  curveVertex(width*4/6,  yCenter - deltas[3]);
+  curveVertex(width*5/6,  yCenter + (yLower-10));
+  curveVertex(width, yCenter);
+  curveVertex(width, yCenter);
+  endShape();
+
+
 }
