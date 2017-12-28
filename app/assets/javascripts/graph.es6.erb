@@ -1,30 +1,88 @@
 let avgArray, avgArraySorted, avgRecent, avgAll;
+const delta = 40;
 
 function setup() {
-  const graph = createCanvas(640, 480); // create canvas
+  const graph = createCanvas(displayWidth, 480); // create canvas
   graph.parent('graph');  // then allocate to parent div
 
+
+  // **** init display settings ***********
   background(125);
-  fill(255);
+  noFill();
+  stroke(255, 120);
+  strokeWeight(3);
+
+
+  // ******* bring in keystroke data *************
   avgArray = <%= Keystroke.calc_avg_prev_array %>;
   avgArraySorted = avgArray.slice().sort((a, b) => a - b ); // sort numerically
   avgRecent = avgArray[ avgArray.length - 1 ];
   avgAll = <%= Keystroke.calc_avg_all %>;
 }
 
+
+
 function mapGraph( v ) {
   return map( v, avgArraySorted[0], avgArraySorted[ avgArraySorted.length - 1 ], height, 0 );
 }
 
+
+
 function draw() {
-  textSize(16);
+  background(125);
+  // textSize(16);
   // text(avgAll, 10, 90);
 
-  // MAPPING
+  // GRAPHING
   const mid = mapGraph( avgAll );
+
   line( 0, mid, width, mid );
+
+  beginShape();
+  curveVertex(0,  height/2);
+  curveVertex(0,  height/2);
+  curveVertex(width*1/4,  height/2 + delta);
+  curveVertex(width*2/4,  height/2 - delta);
+  curveVertex(width*3/4,  height/2 + delta);
+  curveVertex(width, height/2);
+  curveVertex(width, height/2);
+  endShape();
+
+  beginShape();
+  curveVertex(0,  height/2);
+  curveVertex(0,  height/2);
+  curveVertex(width*1/5,  height/2 + delta/2);
+  curveVertex(width*2/5,  height/2 - delta/2);
+  curveVertex(width*3/5,  height/2 + delta/2);
+  curveVertex(width*4/5,  height/2 + delta/2);
+  curveVertex(width, height/2);
+  curveVertex(width, height/2);
+  endShape();
+
+  //beginShape();
+  //curveVertex(0,  height/2);
+  //curveVertex(0,  height/2);
+  //curveVertex(width*1/6,  height/2 + delta*1.2);
+  //curveVertex(width*2/6,  height/2 - delta*1.2);
+  //curveVertex(width*3/6,  height/2 + delta*1.2);
+  //curveVertex(width*4/6,  height/2 + delta*1.2);
+  //curveVertex(width*5/6,  height/2 + delta*1.2);
+  //curveVertex(width, height/2);
+  //curveVertex(width, height/2);
+  //endShape();
+
+
+  beginShape();
+  curveVertex(0,  height/2);
+  curveVertex(0,  height/2);
+  curveVertex(width*1/6,  height/2 + delta*1.2);
+  curveVertex(width*2/6,  height/2 - delta*1.2);
+  curveVertex(width*3/6,  height/2 + delta*1.2);
+  curveVertex(width*4/6,  height/2 - delta*1.2);
+  curveVertex(width*5/6,  height/2 + delta*1.2);
+  curveVertex(width, height/2);
+  curveVertex(width, height/2);
+  endShape();
 
 
 }
-
-// could put in a doc ready with instance p5 method cf
