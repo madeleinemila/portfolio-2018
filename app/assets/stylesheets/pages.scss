@@ -25,7 +25,7 @@ body {
   position: relative;
   box-sizing: border-box;
   color: white;
-  padding-top: 40px;
+  padding-top: 15px;
 
   // GRADIENTS
   // option 1
@@ -86,4 +86,9 @@ a.lower-nav {
 .nav-arrow {
   font-family: Futura, sans-serif;
   font-size: 44px;
+}
+
+.nav-arrow-up {
+  @extend .nav-arrow;
+  margin: 40px 0 0 0;
 }

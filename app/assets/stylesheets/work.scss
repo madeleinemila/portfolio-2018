@@ -1,10 +1,12 @@
 #work-container {
-  background-color: white;
-  color: #333;
+  box-sizing: border-box;
   width: 100vw;
   height: 100vh;
+  background-color: white;
+  color: #333;
   margin: 0;
   position: relative;
+  padding-top: 5px;
 
   h1 {
     margin-top: 0;
@@ -15,3 +17,5 @@
     border-color: #333;
   }
 }
+
+// TODO fix nav heights (no longer need heights without circles
