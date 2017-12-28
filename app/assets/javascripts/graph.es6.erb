@@ -1,18 +1,30 @@
+let avgArray, avgArraySorted, avgRecent, avgAll;
+
 function setup() {
   const graph = createCanvas(640, 480); // create canvas
   graph.parent('graph');  // then allocate to parent div
 
   background(125);
   fill(255);
+  avgArray = <%= Keystroke.calc_avg_prev_array %>;
+  avgArraySorted = avgArray.slice().sort((a, b) => a - b ); // sort numerically
+  avgRecent = avgArray[ avgArray.length - 1 ];
+  avgAll = <%= Keystroke.calc_avg_all %>;
+}
+
+function mapGraph( v ) {
+  return map( v, avgArraySorted[0], avgArraySorted[ avgArraySorted.length - 1 ], height, 0 );
 }
 
 function draw() {
   textSize(16);
-  text(<%= Keystroke.calc_avg_all %>, 10, 90);
-  const avgPrev = <%= Keystroke.calc_avg_prev_array %>;
-  for (let i = 0; i < avgPrev.length; i++) {
-    text(avgPrev[i], 10, 90 + 30 * (i + 1));
-  }
+  // text(avgAll, 10, 90);
+
+  // MAPPING
+  const mid = mapGraph( avgAll );
+  line( 0, mid, width, mid );
+
+
 }
 
 // could put in a doc ready with instance p5 method cf
