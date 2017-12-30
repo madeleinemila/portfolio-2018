@@ -1,0 +1,21 @@
+$(document).ready(function() {
+
+  // open modal
+
+  $('.thumb').on('click', function(e) {
+
+    const id = e.target.id.split('-')[1];  // get id after dash
+    $(`#modal-${id}`).css("display", "block"); // show corres modal
+  });
+
+
+  // close modal
+
+  $('.close').on('click', function(e) {
+    const id = e.target.id.split('-')[1];  // get id after dash
+    $(`#modal-${id}`).css("display", "none"); // hide corres modal
+  });
+
+
+
+});

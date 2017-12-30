@@ -1,0 +1,32 @@
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; // enable scroll if needed
+    background-color: white; // fallback
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.modal-content {
+  background-color: white;
+  margin: 15% auto; // % from top and centered
+  padding: 2em;
+  width: 100%;
+  height: 70%;
+}
+
+.close {
+  color: #DDD;
+  float: right;
+  font-size: 2em;
+}
+
+.close:hover, .close:focus {
+  color: #333;
+  text-decoration: none;
+  cursor: pointer;
+}
