@@ -157,7 +157,19 @@ a.lower-nav {
   //   top: 24px;
   // }
   .border-work {
-    height: 200px;
+    // height: 200px;
     position: relative;
   }
+}
+
+.thumbs-container {
+  margin: 4em 2em;
+}
+
+.thumb {
+  width: 100px;
+  height: 100px;
+  background-color: #23558B;
+  display: inline-block;
+  margin: 20px;
 }
