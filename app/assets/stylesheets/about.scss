@@ -1,18 +1,38 @@
-#about-container {
-  box-sizing: border-box;
-  width: 100vw;
-  height: 100vh;
-  background-color: white;
-  color: #333;
-  margin: 0;
-  position: relative;
-
-  h1 {
-    margin-top: 0;
-  }
-
-  .home-nav {
-    color: #333;
-    border-color: #333;
-  }
-}
+// #about-container {
+//   box-sizing: border-box;
+//   width: 100vw;
+//   height: 100vh;
+//   background-color: white;
+//   color: #333;
+//   margin: 0;
+//   position: relative;
+//
+//   h3.overlap {
+//     margin-top: 0;
+//     text-align: left;
+//     font-family: 'Crimson', serif;
+//     letter-spacing: 1px;
+//     // font-style: italic;
+//     background-color: white;
+//     position: absolute;
+//     top: -12px;
+//     left: 200px;
+//     padding: 0 2em;
+//     font-weight: lighter;
+//   }
+//
+//   .right {
+//     text-align: right;
+//   }
+//
+//   .home-nav {
+//     color: #333;
+//     border-color: #333;
+//   }
+//
+//   .border-dec {
+//     border: 1px solid #333;
+//     margin: $old-border-padding;
+//     height: 100vh;
+//   }
+// }

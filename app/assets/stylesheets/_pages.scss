@@ -1,9 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text');
+
+* {
+  // border: 1px solid pink;
+  box-sizing: border-box;
+}
+
 ///////////////////////
 //     VARIABLES     //
 ///////////////////////
 
 $nav-margin: 40px;
-
+$old-border-padding: 30px;
 
 ///////////////////////
 //       CSS         //
@@ -21,11 +28,13 @@ body {
 }
 
 #home-container {
+  width: 100vw;
   height: 100vh;
   position: relative;
   box-sizing: border-box;
   color: white;
   padding-top: 15px;
+  margin-top: $old-border-padding;
 
   // GRADIENTS
   // option 1
@@ -74,6 +83,8 @@ a.home-nav {
   color: white;
   text-decoration: none;
   text-align: center;
+  font-family: Crimson, serif;
+  text-transform: uppercase;
 }
 
 a.lower-nav {
@@ -91,4 +102,57 @@ a.lower-nav {
 .nav-arrow-up {
   @extend .nav-arrow;
   margin: 40px 0 0 0;
+}
+
+
+
+//////////// ABOUT /////////////////
+
+
+
+#about-container {
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  color: #333;
+  margin: 0;
+  position: relative;
+
+  h3.overlap {
+    margin-top: 0;
+    text-align: left;
+    font-family: 'Crimson', serif;
+    letter-spacing: 1px;
+    // font-style: italic;
+    background-color: white;
+    position: absolute;
+    top: -12px;
+    left: 200px;
+    padding: 0 2em;
+    font-weight: lighter;
+  }
+
+  .right {
+    text-align: right;
+  }
+
+  .home-nav {
+    color: #333;
+    border-color: #333;
+  }
+
+  .border-dec {
+    border: 1px solid #333;
+    margin: $old-border-padding;
+    height: 100vh;
+  }
+}
+
+#work-container {
+  @extend #about-container;
+  height: 90vh;
+  h3.overlap {
+    top: 24px;
+  }
 }
