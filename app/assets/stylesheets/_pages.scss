@@ -17,7 +17,7 @@ $old-border-padding: 30px;
 ///////////////////////
 
 html, body {
-  // height: 100vh;
+
 }
 
 body {
@@ -113,7 +113,6 @@ a.lower-nav {
 #about-container {
   box-sizing: border-box;
   width: 100vw;
-  height: 100vh;
   background-color: white;
   color: #333;
   margin: 0;
@@ -145,14 +144,20 @@ a.lower-nav {
   .border-dec {
     border: 1px solid #333;
     margin: $old-border-padding;
+  }
+  .border-about {
     height: 100vh;
   }
 }
 
 #work-container {
+  height: 10vh;
   @extend #about-container;
-  height: 90vh;
-  h3.overlap {
-    top: 24px;
+  // h3.overlap {
+  //   top: 24px;
+  // }
+  .border-work {
+    height: 200px;
+    position: relative;
   }
 }
