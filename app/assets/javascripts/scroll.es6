@@ -1,4 +1,8 @@
 $(document).ready(function(){
- // scrollTo(($(document).width() - $(window).width()) / 2, 0);
- scrollTo( 0, $(window).height ); // TODO not working?
+
+ setTimeout(function(){   // had to put scrollTo inside 100ms timeout to work in recent Chrome
+    scrollTo( 0, window.innerHeight + 60 );
+  }, 100);
+
+
 });

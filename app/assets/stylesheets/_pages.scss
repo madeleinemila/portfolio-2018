@@ -30,7 +30,7 @@ body.modal-open {
 
 .blur {
   filter: blur(2px) grayscale(100%); // TODO prefixes?
-
+  transition: filter 1s;
 }
 
 #home-container {
@@ -167,7 +167,7 @@ a.lower-nav {
 }
 
 .thumbs-container {
-  margin: 4em 2em;
+  margin: 3em 2em;
 }
 
 .thumb {
@@ -186,6 +186,7 @@ a.lower-nav {
   letter-spacing: 0.8px;
   height: 60px;
   display: inline-block;
+  margin-bottom: 0;
 }
 
 .thumb-small {
