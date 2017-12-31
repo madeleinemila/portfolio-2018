@@ -8,7 +8,8 @@
     height: 100%;
     overflow: auto; // enable scroll if needed
     background-color: white; // fallback
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 228, 228, 0.8);
+    filter: none;
 }
 
 .modal-content {
@@ -16,7 +17,18 @@
   margin: 15% auto; // % from top and centered
   padding: 2em;
   width: 100%;
-  height: 70%;
+  // height: 70%;
+  h1 {
+    text-transform: uppercase;
+  }
+  p {
+    font-family: 'Crimson', serif;
+    letter-spacing: 1px;
+    font-style: italic;
+  }
+  p:last-of-type {
+    padding-bottom: 100px;
+  }
 }
 
 .close {
@@ -29,4 +41,20 @@
   color: #333;
   text-decoration: none;
   cursor: pointer;
+}
+
+
+// TEXT & IMAGE
+
+.content {
+  overflow: hidden;
+  // height: 100vh;
+  width: 50vw;
+}
+
+
+img.featured {
+  max-width: 400px;
+  margin: 0 auto;
+  border: 1px #d9d2d2 solid;
 }

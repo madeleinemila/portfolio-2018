@@ -3,9 +3,13 @@ $(document).ready(function() {
   // open modal
 
   $('.thumb').on('click', function(e) {
-
     const id = e.target.id.split('-')[1];  // get id after dash
+      // console.log(id);
     $(`#modal-${id}`).css("display", "block"); // show corres modal
+    $('body').addClass('modal-open'); // disabling scroll behind
+    $('#work-container').addClass('blur');
+    $('#home-container').addClass('blur');
+    $('#about-container').addClass('blur');
   });
 
 
@@ -14,6 +18,10 @@ $(document).ready(function() {
   $('.close').on('click', function(e) {
     const id = e.target.id.split('-')[1];  // get id after dash
     $(`#modal-${id}`).css("display", "none"); // hide corres modal
+    $('body').removeClass('modal-open'); // reenable scroll
+    $('#work-container').removeClass('blur');
+    $('#home-container').removeClass('blur');
+    $('#about-container').removeClass('blur');
   });
 
 

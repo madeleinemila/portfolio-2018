@@ -16,9 +16,6 @@ $old-border-padding: 30px;
 //       CSS         //
 ///////////////////////
 
-html, body {
-
-}
 
 body {
   // background-color: rgb(4, 225, 133);
@@ -27,9 +24,18 @@ body {
   letter-spacing: 3px;
 }
 
+body.modal-open {
+  overflow: hidden; // disable scroll behind popups
+}
+
+.blur {
+  filter: blur(2px) grayscale(100%); // TODO prefixes?
+
+}
+
 #home-container {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
   box-sizing: border-box;
   color: white;
@@ -105,7 +111,6 @@ a.lower-nav {
 }
 
 
-
 //////////// ABOUT /////////////////
 
 
@@ -127,7 +132,7 @@ a.lower-nav {
     background-color: white;
     position: absolute;
     top: -12px;
-    left: 200px;
+    left: 50px;
     padding: 0 2em;
     font-weight: lighter;
   }
@@ -167,8 +172,22 @@ a.lower-nav {
 
 .thumb {
   width: 100px;
-  height: 100px;
-  background-color: #23558B;
+  // height: 100px;
+  // background-color: #23558B;
   display: inline-block;
   margin: 20px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.thumb-label {
+  font-family: 'Crimson', serif;
+  font-style: italic;
+  letter-spacing: 0.8px;
+  height: 60px;
+  display: inline-block;
+}
+
+.thumb-small {
+  width: 100px;
 }
