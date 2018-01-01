@@ -24,6 +24,10 @@ body {
   letter-spacing: 3px;
 }
 
+p {
+  font-family: 'Crimson', serif;
+}
+
 body.modal-open {
   overflow: hidden; // disable scroll behind popups
 }
@@ -143,7 +147,7 @@ a.lower-nav {
 
   .home-nav {
     color: #333;
-    border-color: #333;
+    // border-color: #333;
   }
 
   .border-dec {
@@ -153,7 +157,34 @@ a.lower-nav {
   .border-about {
     height: 100vh;
   }
+  .about-key-content {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 1em;
+    h2 {
+      font-family: 'Crimson', serif;
+      font-style: italic;
+      font-size: 40px;
+      text-transform: lowercase;
+      display: block;
+      padding-top: 2em;
+    }
+    p.feature-text {
+      letter-spacing: 1px;
+      font-size: 26px;
+      text-align: center;
+    }
+  }
 }
+
+// **** flex grid ****
+
+
+
+
+
+
+//////////// WORK ///////////////////
 
 #work-container {
   @extend #about-container;
