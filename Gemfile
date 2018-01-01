@@ -35,6 +35,7 @@ gem 'pry-rails'
 gem 'jquery-rails'
 gem 'sprockets'
 gem 'sprockets-es6'
+gem 'bootstrap-sass'
 
 
 # Use Capistrano for deployment

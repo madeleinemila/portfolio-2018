@@ -18,6 +18,10 @@
   padding: 2em;
   width: 75%;
   // height: 70%;
+  background-clip: border-box;
+  border-radius: 0;
+  -webkit-box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
   h1 {
     text-transform: uppercase;
   }
@@ -32,7 +36,7 @@
 }
 
 .close {
-  color: #DDD;
+  color: #444;
   float: right;
   font-size: 2em;
 }

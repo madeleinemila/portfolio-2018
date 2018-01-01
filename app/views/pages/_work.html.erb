@@ -1,0 +1,96 @@
+<!-- TODO make partials for modals? -->
+
+
+<div id="work-container">
+  <div class="border-dec border-work">
+    <h3 class="overlap">General Assembly</h3>
+    <div class="thumbs-container">
+
+      <%= render partial: "thumb", locals: { id: "final", name: "final project", image: "final_thumb.jpg" } %>
+
+      <%= render partial: "thumb", locals: { id: "triage", name: "triage", image: "servers_thumb.jpg" } %>
+
+      <%= render partial: "thumb", locals: { id: "gehms", name: "gehms", image: "gehms_thumb.jpg" } %>
+
+      <%= render partial: "thumb", locals: { id: "ba", name: "burning airlines", image: "ba_thumb_bnw2.jpg" } %>
+
+      <%= render partial: "thumb", locals: { id: "ttt", name: "tic tac toe", image: "ttt_thumb_blowup.jpg" } %>
+
+      <%= render partial: "thumb", locals: { id: "hw", name: "homework", image: "mars-01.jpg" } %>
+
+    </div>
+  </div>
+
+  <div class="border-dec border-work">
+    <h3 class="overlap">Freelance Interaction Design</h3>
+    <div class="thumbs-container">
+
+      <%= render partial: "thumb", locals: { id: "prg", name: "prg light interaction demos", image: "final_thumb.jpg" } %>
+
+      <%= render partial: "thumb", locals: { id: "dd", name: "dichroic dimensions", image: "servers_thumb.jpg" } %>
+
+      <%= render partial: "thumb", locals: { id: "o", name: "origin of o", image: "gehms_thumb.jpg" } %>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- WORK DETAIL MODALS -->
+<!--- TRIAGE -->
+<div id="modal-triage" class="modal">
+  <div class="modal-content">
+    <span class="close" id="close-triage">&times;</span><!-- close button -->
+    <div class="content">
+       <h1>Triage</h1>
+       <p>A Ruby on Rails knowledge base app</p>
+       <p>Created for General Assembly's Web Development Immersive Week 6 assignment</p>
+       <p>I enjoyed figuring out: search functionality, favouriting methods</p>
+       <p>Deployed on Heroku: <a href="https://triage.herokuapp.com" target="_blank">triage.herokuapp.com</a></p>
+       <p>Github: <a href="https://github.com/madeleinemila/triage-app" target="_blank">github.com/madeleinemila/triage-app</a></p>
+    </div>
+    <%= image_tag "off_and_on.png", :class => "featured", :alt=> "Screenshot" %>
+    </div>
+  </div>
+</div>
+
+
+<!-- GEHMS -->
+<div id="modal-gehms" class="modal">
+  <div class="modal-content">
+    <span class="close" id="close-gehms">&times;</span><!-- close button -->
+    <div class="content">
+       <h1>Gehms</h1>
+       <p>A JavaScript + Ruby on Rails Retro Games Platform</p>
+       <p>Featuring Arduino hardware controllers & Node.js</p>
+       <p>Created for General Assembly's Web Development Immersive Week 9 group assignment</p>
+       <p>My role: </p>
+       <p>I enjoyed figuring out: </p>
+       <p>Deployed on Heroku: <a href="https://gehms.herokuapp.com" target="_blank">gehms.herokuapp.com</a></p>
+       <p>Github: <a href="https://github.com/madeleinemila/retro-gaming" target="_blank">github.com/madeleinemila/retro-gaming</a></p>
+    </div>
+    <%= image_tag "off_and_on.png", :class => "featured", :alt=> "Screenshot" %>
+    </div>
+  </div>
+</div>
+
+
+<!-- BURNING AIRLINES -->
+<div id="modal-ba" class="modal">
+  <div class="modal-content">
+    <span class="close" id="close-ba">&times;</span><!-- close button -->
+    <div class="content">
+       <h1>Burning Airlines</h1>
+       <p>General Assembly's 2 Day Challenge</p>
+       <p>Built by 2 people using React & Ruby on Rails</p>
+       <p>My role: </p>
+       <p>I enjoyed figuring out: </p>
+       <p>Customer interface deployed on Github Pages: <a href="https://madeleinemila.github.io/burning-airlines">madeleinemila.github.io/burning-airlines</p>
+       <p>Admin interface deployed on Heroku: <a href="https://burningairlinesdb.herokuapp.com" target="_blank">burningairlinesdb.herokuapp.com</a></p>
+       <p>Github frontend: <a href="https://github.com/madeleinemila/burning-airlines" target="_blank">github.com/madeleinemila/burning-airlines</a></p>
+        <p>Github backend: <a href="https://github.com/madeleinemila/burning-airlines" target="_blank">github.com/madeleinemila/burning-airlines</a></p>
+    </div>
+    <%= image_tag "off_and_on.png", :class => "featured", :alt=> "Screenshot" %>
+    </div>
+  </div>
+</div>
