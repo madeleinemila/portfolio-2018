@@ -11,6 +11,7 @@
 
 $nav-margin: 40px;
 $old-border-padding: 30px;
+$brown: rgba(102, 81, 80, 1.00);
 
 ///////////////////////
 //       CSS         //
@@ -22,6 +23,7 @@ body {
   font-family: 'Futura', sans-serif;
   font-weight: 300;
   letter-spacing: 3px;
+  background-color: $brown;
 }
 
 p {
@@ -105,7 +107,7 @@ a.lower-nav {
 }
 
 .nav-arrow {
-  font-family: Futura, sans-serif;
+  // font-family: Futura, sans-serif;
   font-size: 44px;
 }
 
@@ -122,7 +124,7 @@ a.lower-nav {
 #about-container {
   box-sizing: border-box;
   width: 100vw;
-  background-color: white;
+  background-color: $brown;
   color: #333;
   margin: 0;
   position: relative;
@@ -133,7 +135,7 @@ a.lower-nav {
     font-family: 'Crimson', serif;
     letter-spacing: 1px;
     // font-style: italic;
-    background-color: white;
+    background-color: $brown;
     position: absolute;
     top: -12px;
     left: 50px;
@@ -155,7 +157,7 @@ a.lower-nav {
     margin: $old-border-padding;
   }
   .border-about {
-    height: 100vh;
+    min-height: 100vh;
   }
   .about-key-content {
     max-width: 720px;
@@ -168,29 +170,63 @@ a.lower-nav {
       text-transform: lowercase;
       display: block;
       padding-top: 2em;
+      color: #eee;
     }
     p.feature-text {
       letter-spacing: 1px;
       font-size: 26px;
       text-align: center;
+      color: #eee;
     }
   }
 }
 
-// **** flex grid ****
+// **** flex area ****
+
+.flex-container {
+  display: flex;
+  height: 300px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1em;
+  h4 {
+    font-size: 14px;
+  }
+  ul {
+    font-family: 'Crimson', serif;
+    letter-spacing: 0.8px;
+    font-style: italic;
+  }
+}
+
+.flex-cell-1 {
+  flex: 1;
+}
+
+.flex-cell-3 {
+  flex: 3;
+}
+
+img.profile {
+  max-width: 200px;
+  mix-blend-mode: luminosity;
+}
 
 
 
-
-
+.long-dash {
+  letter-spacing: 0.3px;
+}
 
 //////////// WORK ///////////////////
 
 #work-container {
   @extend #about-container;
-  // h3.overlap {
-  //   top: 24px;
-  // }
+  background-color: #eee;
+  h3.overlap {
+    // top: 24px;
+    background-color: #eee;
+  }
   .border-work {
     // height: 200px;
     position: relative;
