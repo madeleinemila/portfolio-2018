@@ -120,6 +120,9 @@ a.lower-nav {
 
 //////////// ABOUT /////////////////
 
+#about {
+  height: 0; // just anchor
+}
 
 
 #about-container {
@@ -182,6 +185,11 @@ a.lower-nav {
       text-align: center;
       color: #222;
     }
+    p.feature-text::first-line {
+      padding-left: 20px;
+      padding-right: 20px;
+      background-color: red;
+    }
   }
 }
 
@@ -229,6 +237,22 @@ img.profile {
 .nav-block {
   height: 200px;
 }
+
+// **** rotate text *******
+
+.rotate {
+  display: inline-block;
+  width: 200px;
+  transition: opacity 1s;
+}
+
+.no-opacity {
+  opacity: 0;
+}
+
+// .full-opacity {
+//   opacity: 1;
+// }
 
 //////////// WORK ///////////////////
 
