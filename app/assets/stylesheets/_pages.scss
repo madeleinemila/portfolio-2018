@@ -12,6 +12,7 @@
 $nav-margin: 40px;
 $old-border-padding: 30px;
 $brown: rgba(102, 81, 80, 1.00);
+$off-white: #eee;
 
 ///////////////////////
 //       CSS         //
@@ -23,7 +24,7 @@ body {
   font-family: 'Futura', sans-serif;
   font-weight: 300;
   letter-spacing: 3px;
-  background-color: $brown;
+  background-color: $off-white;
 }
 
 p {
@@ -124,7 +125,7 @@ a.lower-nav {
 #about-container {
   box-sizing: border-box;
   width: 100vw;
-  background-color: $brown;
+  background-color: $off-white;
   color: #333;
   margin: 0;
   position: relative;
@@ -135,7 +136,7 @@ a.lower-nav {
     font-family: 'Crimson', serif;
     letter-spacing: 1px;
     // font-style: italic;
-    background-color: $brown;
+    background-color: $off-white;
     position: absolute;
     top: -12px;
     left: 50px;
@@ -170,13 +171,13 @@ a.lower-nav {
       text-transform: lowercase;
       display: block;
       padding-top: 2em;
-      color: #eee;
+      color: #222;
     }
     p.feature-text {
       letter-spacing: 1px;
       font-size: 26px;
       text-align: center;
-      color: #eee;
+      color: #222;
     }
   }
 }
@@ -185,14 +186,14 @@ a.lower-nav {
 
 .flex-container {
   display: flex;
-  height: 300px;
+  height: 400px;
   max-width: 800px;
   margin: 0 auto;
   padding: 1em;
   h4 {
     font-size: 14px;
   }
-  ul {
+  ul, p.small-text {
     font-family: 'Crimson', serif;
     letter-spacing: 0.8px;
     font-style: italic;
@@ -216,6 +217,11 @@ img.profile {
 
 .long-dash {
   letter-spacing: 0.3px;
+}
+
+
+.nav-block {
+  height: 200px;
 }
 
 //////////// WORK ///////////////////
