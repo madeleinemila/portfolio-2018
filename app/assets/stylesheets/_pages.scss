@@ -138,10 +138,13 @@ a.lower-nav {
     // font-style: italic;
     background-color: $off-white;
     position: absolute;
-    top: -12px;
+    top: -8px;
     left: 50px;
     padding: 0 2em;
     font-weight: lighter;
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: 3px;
   }
 
   .right {
@@ -185,8 +188,7 @@ a.lower-nav {
 // **** flex area ****
 
 .flex-container {
-  display: flex;
-  height: 400px;
+  height: 500px;
   max-width: 800px;
   margin: 0 auto;
   padding: 1em;
@@ -198,6 +200,10 @@ a.lower-nav {
     letter-spacing: 0.8px;
     font-style: italic;
   }
+}
+
+.flex-row {
+  display: flex;
 }
 
 .flex-cell-1 {
