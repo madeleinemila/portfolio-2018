@@ -19,8 +19,7 @@ $off-white: #eee;
 ///////////////////////
 
 
-body {
-  // background-color: rgb(4, 225, 133);
+html, body {
   font-family: 'Futura', sans-serif;
   font-weight: 300;
   letter-spacing: 3px;
@@ -36,8 +35,11 @@ body.modal-open {
 }
 
 .blur {
-  filter: blur(2px) grayscale(100%); // TODO prefixes?
-  transition: filter 1s;
+  filter: blur(2px); // TODO prefixes?
+  // filter: blur(2px) sepia(100%) hue-rotate(-50deg) grayscale(11%); // TODO prefixes?
+  -webkit-transition: filter 1.3s;
+  -moz-transition: filter 1.3s;
+  transition: filter 1.3s;
 }
 
 #home-container {
