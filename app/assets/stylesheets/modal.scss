@@ -5,11 +5,17 @@
     left: 0;
     top: 0;
     width: 100%;
-    height: 100%;
+    // height: 100%;
     overflow: auto; // enable scroll if needed
     background-color: white; // fallback
     background-color: rgba(255, 228, 228, 0.8);
+    opacity: 0;
     filter: none;
+}
+
+.modal-color {
+    opacity: 1;
+    transition: all 1.2s ease;
 }
 
 .modal-content {
@@ -17,7 +23,7 @@
   margin: 0 auto; // % from top and centered
   padding: 2em;
   width: 75%;
-  // height: 70%;
+  height: 0%; // ************ starting point for transition
   background-clip: border-box;
   border-radius: 0;
   -webkit-box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
@@ -34,6 +40,18 @@
     padding-bottom: 100px;
   }
 }
+
+// **** MODAL TRANSITIONS ****
+
+.modal-show {
+  min-height: 100%;
+  transition: all 2s;
+}
+
+
+
+
+
 
 .close {
   color: #444;
