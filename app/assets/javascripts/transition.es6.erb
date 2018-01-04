@@ -1,0 +1,105 @@
+// TRIGGER FLAGS (global)
+let drawRect = false;
+
+
+// WRITTEN IN INSTANCE MODE
+
+const transition = function(sketch) {
+        // const rectWidth = 100;
+        // const rectHeight = 100;
+        // int border = 3;
+
+        // drawing vars
+        // int lineStart = 150;
+        let v = 0;
+
+
+
+
+
+
+        // ********** SETUP ***************************
+
+        sketch.setup = function() {
+          const anim = sketch.createCanvas(400, 400);
+          // anim.parent("anim");
+
+          sketch.background(255, 228, 228, 0);
+          sketch.strokeWeight(5);
+          sketch.fill(0, 0);
+          sketch.stroke(255);
+          sketch.frameRate(60);
+          sketch.rectMode("CENTER");
+        }
+
+
+
+
+
+
+
+
+        // ********* DRAW ******************************
+
+        sketch.draw = function() {
+          // sketch.background(255, 0, 0);
+          sketch.clear();
+          if (drawRect === true) {
+            drawRectBorder();
+          }
+          if (v > 400) {
+            drawRect = false;
+            v = 0;
+          }
+        }
+
+
+
+
+
+
+
+
+        // ******* Animation components
+
+
+        function drawRectBorder() {
+          // TOP LINE
+          if (v < 100) {
+            sketch.line(150, 150,
+                  150 + v, 150);
+          } else {
+             sketch.line(150, 150,
+                250, 150);
+          }
+          // RIGHT LINE
+          if (v >= 100 && v < 200) {
+            sketch.line(250, 150,
+                  250, 150 + (v - 100));
+          } else if (v >= 200) {
+            sketch.line(250, 150,
+              250, 250);
+          }
+          // BOTTOM LINE
+          if (v >= 200 && v < 300) {
+            sketch.line(250, 250,
+                  250 - (v - 200), 250);
+          } else if (v >= 300) {
+            sketch.line(250, 250,
+                  150, 250);
+          }
+          // LEFT LINE
+          if (v >= 300 && v < 400) {
+            sketch.line(150, 250,
+                  150, 250 - (v - 300));
+          } else if (v >= 400) {
+            sketch.line(150, 250,
+                  150, 150);
+          }
+
+          v += 16;
+        }
+
+};
+
+const p5_transition = new p5(transition, "anim");

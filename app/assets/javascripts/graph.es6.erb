@@ -1,122 +1,127 @@
-let avgArray, avgArraySorted, avgRecent, avgAll;
-let yCenter, yLower, randomTest;
-const delta = 40; // used during test
-const deltas = [];
+// WRITTEN IN INSTANCE MODE FOR MULTPLE CANVASES ON ONE PAGE
+
+const graphGenerator = function(sketch) {
+          let avgArray, avgArraySorted, avgRecent, avgAll;
+          let yCenter, yLower, randomTest;
+          const delta = 40; // used during test
+          const deltas = [];
 
 
-// ******* Helper Functions ****************************************************
+          // ******* Helper Functions ****************************************************
 
-function mapCenter( value ) {
-  return map(  // ** p5 map - map to a new range
-    value,
-    0, avgArraySorted[ avgArraySorted.length - 1 ], // original range // TODO get rid of sorted and use max
-    height, 20
-  ); // mapped range, reversed for natural y axis w 0 at bottom, but not all the way to 0 to avoid graphic cut off
-}
+          function mapCenter( value ) {
+            return sketch.map(  // ** p5 map - map to a new range
+              value,
+              0, avgArraySorted[ avgArraySorted.length - 1 ], // original range // TODO get rid of sorted and use max
+              sketch.height, 20
+            ); // mapped range, reversed for natural y axis w 0 at bottom, but not all the way to 0 to avoid graphic cut off
+          }
 
-function mapGraph( value ) {
-  return map(
-    value,
-    0, avgArraySorted[ avgArraySorted.length - 1 ], // original range // TODO
-    0, height/2
-  );
-}
-
-
-// *******           SETUP           *******************************************
-
-function setup() {
-  const graph = createCanvas(window.innerWidth, 240); // create canvas
-  graph.parent('graph');  // then allocate to parent div
+          function mapGraph( value ) {
+            return sketch.map(
+              value,
+              0, avgArraySorted[ avgArraySorted.length - 1 ], // original range // TODO
+              0, sketch.height/2
+            );
+          }
 
 
-  // **** init display settings ***********
-  noFill();
-  stroke(255, 120);
-  strokeWeight(3);
+          // *******           SETUP           *******************************************
+
+          sketch.setup = function() {
+            const graph = sketch.createCanvas(window.innerWidth, 240); // create canvas
+            // graph.parent('graph');  // then allocate to parent div
+            //
+            //
+            // **** init display settings ***********
+            sketch.noFill();
+            sketch.stroke(255, 120);
+            sketch.strokeWeight(3);
 
 
-  // ******* bring in keystroke data *************
-  avgArray = <%= Keystroke.calc_avg_prev_array %>;
-  avgArraySorted = avgArray.slice().sort((a, b) => a - b ); // sort numerically
-  avgRecent = avgArray[ avgArray.length - 1 ];
-  avgAll = <%= Keystroke.calc_avg_all %>;
-  yCenter = mapCenter( avgAll );
-  yLower = height - yCenter;
+            // ******* bring in keystroke data *************
+            avgArray = <%= Keystroke.calc_avg_prev_array %>;
+            avgArraySorted = avgArray.slice().sort((a, b) => a - b ); // sort numerically
+            avgRecent = avgArray[ avgArray.length - 1 ];
+            avgAll = <%= Keystroke.calc_avg_all %>;
+            yCenter = mapCenter( avgAll );
+            yLower = sketch.height - yCenter;
 
-  // CONVERT DB VALUES INTO DELTAS
-  avgArray.forEach((a) => {
-    const v = mapGraph( a );
-    deltas.push( v );
-  });
+            // CONVERT DB VALUES INTO DELTAS
+            avgArray.forEach((a) => {
+              const v = mapGraph( a );
+              deltas.push( v );
+            });
 
-  // randomTest
-  randomTest = random( deltas[2] );
-}
-
-
+            // randomTest
+            randomTest = sketch.random( deltas[2] );
+          }
 
 
-// *******            DRAW           *******************************************
-
-function draw() {
-  // background(4, 225, 133, 0);  // redraw background each frame
-  clear();
-
-  // mapGraph();
 
 
-  // GRAPHING
+          // *******            DRAW           *******************************************
+
+          sketch.draw = function() {
+            // sketch.background(255, 0, 0);
+            sketch.clear();
 
 
-  line( 0, yCenter, width, yCenter );
-
-  beginShape();
-  curveVertex(0,  yCenter);
-  curveVertex(0,  yCenter);
-  curveVertex(width*1/4,  yCenter + deltas[0]);
-  curveVertex(width*2/4,  yCenter - deltas[0]);
-  curveVertex(width*3/4,  yCenter + deltas[0]);
-  curveVertex(width, yCenter);
-  curveVertex(width, yCenter);
-  endShape();
-
-  beginShape();
-  curveVertex(0,  yCenter);
-  curveVertex(0,  yCenter);
-  curveVertex(width*1/5,  yCenter + deltas[1]);
-  curveVertex(width*2/5,  yCenter - deltas[1]);
-  curveVertex(width*3/5,  yCenter + deltas[1]);
-  curveVertex(width*4/5,  yCenter + deltas[1]);
-  curveVertex(width, yCenter);
-  curveVertex(width, yCenter);
-  endShape();
+            // GRAPHING
 
 
-  beginShape();
-  curveVertex(0,  yCenter);
-  curveVertex(0,  yCenter);
-  curveVertex(width*1/6,  yCenter + (yLower-10));
-  curveVertex(width*2/6,  yCenter - randomTest);
-  curveVertex(width*3/6,  yCenter + (yLower-10));
-  curveVertex(width*4/6,  yCenter - deltas[2]);
-  curveVertex(width*5/6,  yCenter + (yLower-10));
-  curveVertex(width, yCenter);
-  curveVertex(width, yCenter);
-  endShape();
+            sketch.line( 0, yCenter, sketch.width, yCenter );
+
+            sketch.beginShape();
+            sketch.curveVertex(0,  yCenter);
+            sketch.curveVertex(0,  yCenter);
+            sketch.curveVertex(sketch.width*1/4,  yCenter + deltas[0]);
+            sketch.curveVertex(sketch.width*2/4,  yCenter - deltas[0]);
+            sketch.curveVertex(sketch.width*3/4,  yCenter + deltas[0]);
+            sketch.curveVertex(sketch.width, yCenter);
+            sketch.curveVertex(sketch.width, yCenter);
+            sketch.endShape();
+
+            sketch.beginShape();
+            sketch.curveVertex(0,  yCenter);
+            sketch.curveVertex(0,  yCenter);
+            sketch.curveVertex(sketch.width*1/5,  yCenter + deltas[1]);
+            sketch.curveVertex(sketch.width*2/5,  yCenter - deltas[1]);
+            sketch.curveVertex(sketch.width*3/5,  yCenter + deltas[1]);
+            sketch.curveVertex(sketch.width*4/5,  yCenter + deltas[1]);
+            sketch.curveVertex(sketch.width, yCenter);
+            sketch.curveVertex(sketch.width, yCenter);
+            sketch.endShape();
 
 
-  beginShape();
-  curveVertex(0,  yCenter);
-  curveVertex(0,  yCenter);
-  curveVertex(width*1/6,  yCenter + (yLower-10));
-  curveVertex(width*2/6,  yCenter - randomTest);
-  curveVertex(width*3/6,  yCenter + (yLower-10));
-  curveVertex(width*4/6,  yCenter - deltas[3]);
-  curveVertex(width*5/6,  yCenter + (yLower-10));
-  curveVertex(width, yCenter);
-  curveVertex(width, yCenter);
-  endShape();
+            sketch.beginShape();
+            sketch.curveVertex(0,  yCenter);
+            sketch.curveVertex(0,  yCenter);
+            sketch.curveVertex(sketch.width*1/6,  yCenter + (yLower-10));
+            sketch.curveVertex(sketch.width*2/6,  yCenter - randomTest);
+            sketch.curveVertex(sketch.width*3/6,  yCenter + (yLower-10));
+            sketch.curveVertex(sketch.width*4/6,  yCenter - deltas[2]);
+            sketch.curveVertex(sketch.width*5/6,  yCenter + (yLower-10));
+            sketch.curveVertex(sketch.width, yCenter);
+            sketch.curveVertex(sketch.width, yCenter);
+            sketch.endShape();
 
 
-}
+            sketch.beginShape();
+            sketch.curveVertex(0,  yCenter);
+            sketch.curveVertex(0,  yCenter);
+            sketch.curveVertex(sketch.width*1/6,  yCenter + (yLower-10));
+            sketch.curveVertex(sketch.width*2/6,  yCenter - randomTest);
+            sketch.curveVertex(sketch.width*3/6,  yCenter + (yLower-10));
+            sketch.curveVertex(sketch.width*4/6,  yCenter - deltas[3]);
+            sketch.curveVertex(sketch.width*5/6,  yCenter + (yLower-10));
+            sketch.curveVertex(sketch.width, yCenter);
+            sketch.curveVertex(sketch.width, yCenter);
+            sketch.endShape();
+
+
+          }
+};
+
+// const $graph = $("#graph")
+const p5_graph = new p5(graphGenerator, "graph");  // args: function for sketch, id of div to attach to

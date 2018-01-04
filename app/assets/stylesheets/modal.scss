@@ -36,6 +36,7 @@
 // }
 //
 .modal-content {
+  z-index: 50;
   background-color: white;
   margin: 0 auto; // % from top and centered
   padding: 2em;
@@ -102,15 +103,16 @@ img.featured {
 // TINY TRANSITION ANIMATION
 
 #anim {
-  display: none;
+  z-index: 40;
+  // display: none;
   // opacity: 0;
-  width: 100px;
-  height: 100px;
+  width: 400px;
+  height: 400px;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   transition: all 1s ease;
   z-index: 20;
-  border: 5px white solid;
+  // border: 5px white solid;
 }
