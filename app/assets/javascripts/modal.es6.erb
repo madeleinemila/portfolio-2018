@@ -5,6 +5,7 @@ $(document).ready(function() {
   $('.thumb').on('click', function(e) {
     const id = e.target.id.split('-')[1];  // get id after dash
     $(`#modal-bg`).css("display", "block"); // show modal bg
+    $('#anim').css("display", "block"); // show transition anim
     $('body').addClass('modal-open'); // disabling scroll behind
     $('#work-container').addClass('blur'); // blurring bg
     $('#home-container').addClass('blur');
@@ -12,11 +13,9 @@ $(document).ready(function() {
     setTimeout(function() {
       $(`#modal-bg`).css("opacity", 1); // fade in modal bg
     }, 810);  // occurring after blur and desat
-
-    // setTimeout(function() {
-    //     $(`#modal-${id}`).addClass('modal-color'); // fade in color
-    // }, 100);
-        // $(`#modal-${id}`).css("display", "block"); // show corres modal
+    setTimeout(function() {
+      $(`#modal-${id}`).css("display", "block"); // show corres modal      
+    }, 1600);
   });
 
 

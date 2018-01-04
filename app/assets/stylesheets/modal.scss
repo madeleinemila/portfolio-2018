@@ -1,5 +1,5 @@
 #modal-bg {
-  display: none;
+  display: none; // gets shown by js
   position: fixed;
   z-index: 10;
   left: 0;
@@ -8,21 +8,17 @@
   min-height: 100vh;
   overflow: auto; // enable scroll if needed
   background-color: white; // fallback
-  background-color: rgba(255, 228, 228, 0.8);
-  opacity: 0;
+  background-color: rgba(255, 228, 228, 0.9);
+  opacity: 0; // gets shown by js
   filter: none;
   transition: opacity 0.8s ease;
 }
 
-.modal-color {
-  // opacity: 1;
-
-}
 
 // .modal {
 //     display: none;
 //     position: fixed;
-//     z-index: 10;
+//     z-index: 30;
 //     left: 0;
 //     top: 0;
 //     width: 100%;
@@ -39,28 +35,28 @@
 //     transition: all 1.2s ease;
 // }
 //
-// .modal-content {
-//   background-color: white;
-//   margin: 0 auto; // % from top and centered
-//   padding: 2em;
-//   width: 75%;
-//   height: 0%; // ************ starting point for transition
-//   background-clip: border-box;
-//   border-radius: 0;
-//   -webkit-box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
-//   box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
-//   h1 {
-//     text-transform: uppercase;
-//   }
-//   p {
-//     font-family: 'Crimson', serif;
-//     letter-spacing: 1px;
-//     font-style: italic;
-//   }
-//   p:last-of-type {
-//     padding-bottom: 100px;
-//   }
-// }
+.modal-content {
+  background-color: white;
+  margin: 0 auto; // % from top and centered
+  padding: 2em;
+  width: 75%;
+  // height: 0%; // ************ starting point for transition
+  background-clip: border-box;
+  border-radius: 0;
+  -webkit-box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+  h1 {
+    text-transform: uppercase;
+  }
+  p {
+    font-family: 'Crimson', serif;
+    letter-spacing: 1px;
+    font-style: italic;
+  }
+  p:last-of-type {
+    padding-bottom: 100px;
+  }
+}
 //
 // // **** MODAL TRANSITIONS ****
 //
@@ -68,51 +64,53 @@
 //   min-height: 100%;
 //   transition: all 2s;
 // }
-//
-//
-//
-//
-//
-//
-// .close {
-//   color: #444;
-//   float: right;
-//   font-size: 2em;
-// }
-//
-// .close:hover, .close:focus {
-//   color: #333;
-//   text-decoration: none;
-//   cursor: pointer;
-// }
-//
-//
-// // TEXT & IMAGE
-//
-// .content {
-//   overflow: hidden;
-//   // height: 100vh;
-//   width: 50vw;
-// }
-//
-//
-// img.featured {
-//   max-width: 400px;
-//   margin: 0 auto;
-//   border: 1px #d9d2d2 solid;
-// }
+
+
+
+
+
+
+.close {
+  color: #444;
+  float: right;
+  font-size: 2em;
+}
+
+.close:hover, .close:focus {
+  color: #333;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+// TEXT & IMAGE
+
+.content {
+  overflow: hidden;
+  // height: 100vh;
+  width: 50vw;
+}
+
+
+img.featured {
+  max-width: 400px;
+  margin: 0 auto;
+  border: 1px #d9d2d2 solid;
+}
 
 
 // TINY TRANSITION ANIMATION
 
 #anim {
-  background-color: white;
-  width: 40px;
-  height: 20px;
+  display: none;
+  // opacity: 0;
+  width: 100px;
+  height: 100px;
   position: fixed;
-  top: 0;
+  top: 50%;
   left: 50%;
-  transform: translate(-50%);
+  transform: translate(-50%, -50%);
   transition: all 1s ease;
   z-index: 20;
+  border: 5px white solid;
 }
