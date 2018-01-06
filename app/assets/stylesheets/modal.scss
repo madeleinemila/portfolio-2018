@@ -6,11 +6,11 @@
   top: 0;
   min-width: 100vw;
   min-height: 100vh;
-  overflow: auto; // enable scroll if needed
+  overflow-y: auto; // enable scroll if needed
   background-color: white; // fallback
   background-color: rgba(255, 228, 228, 0.9);
   opacity: 0; // gets shown by js
-  filter: none;
+  filter: none; // don't blur modals
   transition: opacity 0.8s ease;
 }
 
@@ -29,26 +29,29 @@
 //     opacity: 0;
 //     filter: none;
 // }
-//
-// .modal-color {
-//     opacity: 1;
-//     transition: all 1.2s ease;
-// }
-//
+
 .modal-content {
-  display: none;
+  display: none; // gets shown by js
   z-index: 50;
   background-color: white;
-  margin: 0 auto; // % from top and centered
+  // margin: 0 auto;
   padding: 2em;
   width: 75%;
-  // height: 0%; // ************ starting point for transition
+
+  position: fixed;     // to allow vert scroll of modal while body is still
+  top: 0;              // ^^^
+  overflow-y: scroll;  // ^^^
+  height: 100%;    // ^^^
+  left: 50%;                     // centering
+  transform: translate(-50%);    // ^^^
+
   background-clip: border-box;
   border-radius: 0;
   -webkit-box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
   box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
   h1 {
     text-transform: uppercase;
+    margin: 3em 0;
   }
   p {
     font-family: 'Crimson', serif;
@@ -56,24 +59,12 @@
     font-style: italic;
   }
   p:last-of-type {
-    padding-bottom: 100px;
+    padding-bottom: 3em;
   }
 }
-//
-// // **** MODAL TRANSITIONS ****
-//
-// .modal-show {
-//   min-height: 100%;
-//   transition: all 2s;
-// }
-
-
-
-
-
 
 .close {
-  color: #444;
+  color: #666;
   float: right;
   font-size: 2em;
 }
@@ -85,23 +76,24 @@
 }
 
 
-// TEXT & IMAGE
+// MODAL TEXT & IMAGES
 
 .content {
-  overflow: hidden;
+  // overflow: scroll;
   // height: 100vh;
   // width: 50vw;
 }
 
 
 img.featured {
-  max-width: 400px;
+  max-width: 1200px;
   margin: 0 auto;
   border: 1px #d9d2d2 solid;
+  box-shadow: 5px 5px 15px #d9d2d2;
 }
 
 
-// TINY TRANSITION ANIMATION
+// TRANSITION ANIMATION
 
 #anim {
   z-index: 40;

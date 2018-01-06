@@ -36,7 +36,6 @@ body.modal-open {
 
 .blur {
   filter: blur(2px); // TODO prefixes?
-  // filter: blur(2px) sepia(100%) hue-rotate(-50deg) grayscale(11%); // TODO prefixes?
   -webkit-transition: filter 1.3s;
   -moz-transition: filter 1.3s;
   transition: filter 1.3s;
