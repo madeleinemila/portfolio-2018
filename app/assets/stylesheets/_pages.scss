@@ -35,7 +35,8 @@ body.modal-open {
 }
 
 .blur {
-  filter: blur(2px); // TODO prefixes?
+  -webkit-filter: blur(2px);
+  filter: blur(2px);
   -webkit-transition: filter 1.3s;
   -moz-transition: filter 1.3s;
   transition: filter 1.3s;
@@ -50,15 +51,8 @@ body.modal-open {
   padding-top: 15px;
   margin-top: $old-border-padding;
 
-  // GRADIENTS
-  // option 1
-  // background: #00a186;
-  // background: -moz-linear-gradient(top, #00a186 0%, #2989d8 50%, #00a186 100%);
-  // background: -webkit-linear-gradient(top, #00a186 0%,#2989d8 50%,#00a186 100%);
-  // background: linear-gradient(to bottom, #00a186 0%,#2989d8 50%,#00a186 100%);
-  // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00a186', endColorstr='#00a186',GradientType=0 );
-
-  // option 2
+  // GRADIENT
+  // generated with http://www.colorzilla.com/gradient-editor/
   background: #23548A;
   background: -moz-linear-gradient(top, #00eab3 0%, #23538a 100%);
   background: -webkit-linear-gradient(top, #00eab3 0%,#23538a 100%);
@@ -109,7 +103,6 @@ a.lower-nav {
 }
 
 .nav-arrow {
-  // font-family: Futura, sans-serif;
   font-size: 44px;
 }
 
@@ -157,7 +150,6 @@ a.lower-nav {
 
   .home-nav {
     color: #333;
-    // border-color: #333;
   }
 
   .border-dec {
@@ -189,7 +181,8 @@ a.lower-nav {
     p.feature-text::first-line {
       padding-left: 20px;
       padding-right: 20px;
-      background-color: red;
+      background-color: #008aff;
+      // background-color: rgba(255, 180, 82, 1.00);
     }
   }
 }
@@ -244,16 +237,14 @@ img.profile {
 .rotate {
   display: inline-block;
   width: 200px;
+  -webkit-transition: opacity 1s;
+  -moz-transition: opacity 1s;
   transition: opacity 1s;
 }
 
 .no-opacity {
   opacity: 0;
 }
-
-// .full-opacity {
-//   opacity: 1;
-// }
 
 //////////// WORK ///////////////////
 
@@ -276,8 +267,6 @@ img.profile {
 
 .thumb {
   width: 100px;
-  // height: 100px;
-  // background-color: #23558B;
   display: inline-block;
   margin: 20px;
   vertical-align: middle;
