@@ -1,8 +1,9 @@
+let modalId;
+
 $(document).ready(function() {
   // open modal
-
   $('.thumb').on('click', function(e) {
-    const id = e.target.id.split('-')[1];  // get id after dash
+    modalId = e.target.id.split('-')[1];  // get id after dash
     $(`#modal-bg`).css("display", "block"); // show modal bg
     $('#anim').css("display", "block"); // show transition anim
     $('body').addClass('modal-open'); // disabling scroll behind
@@ -13,58 +14,31 @@ $(document).ready(function() {
     //   $(`#modal-bg`).css("opacity", 1); // fade in modal bg
     // }, 810);  // occurring after blur and desat
     setTimeout(function() {
-      $(`#modal-${id}`).css("display", "block"); // show corres modal
+      $(`#modal-${ modalId }`).css("display", "block"); // show corres modal
     }, 800); // animation takes 20 frames
   });
 
 
   // close modal
+  // ...if close X is clicked
+  $('.close').on('click', function() {
+    closeModal();
+  });
 
-  $('.close').on('click', function(e) {
-    const id = e.target.id.split('-')[1];  // get id after dash
-    $(`#modal-${id}`).css("display", "none"); // hide corres modal
+  // ...or if outside of modal is clicked
+  $('#modal-bg').on('click', function() {
+    closeModal();
+  });
+
+  const closeModal = function() {
+    $(`#modal-${ modalId }`).css("display", "none"); // hide corres modal
     $('body').removeClass('modal-open'); // reenable scroll
-    $('#work-container').removeClass('blur'); // remove blur
-    $('#home-container').removeClass('blur');
-    $('#about-container').removeClass('blur');
+    // $('#work-container').removeClass('blur'); // remove blur
+    // $('#home-container').removeClass('blur');
+    // $('#about-container').removeClass('blur');
     $(`#modal-bg`).css("display", "none"); // hide modal bg
     $('#anim').css("display", "none"); // hide transition anim
     drawRect = false;
-  });
-
-
+  };
 
 });
-
-
-
-// prev version
-
-  // open modal
-  //
-  // $('.thumb').on('click', function(e) {
-  //   const id = e.target.id.split('-')[1];  // get id after dash
-  //   console.log(id);
-  //   $(`#modal-${id}`).css("display", "block"); // show corres modal
-  //
-  //   $('body').addClass('modal-open'); // disabling scroll behind
-  //   $('#work-container').addClass('blur'); // blurring bg
-  //   $('#home-container').addClass('blur');
-  //   $('#about-container').addClass('blur');
-  //   setTimeout(function() {
-  //       $(`#modal-${id}`).addClass('modal-color'); // fade in color
-  //   }, 100);
-  // });
-  //
-  //
-  // // close modal
-  //
-  // $('.close').on('click', function(e) {
-  //   const id = e.target.id.split('-')[1];  // get id after dash
-  //   $(`#modal-${id}`).css("display", "none"); // hide corres modal
-  //   $('body').removeClass('modal-open'); // reenable scroll
-  //   $('#work-container').removeClass('blur'); // remove blur
-  //   $('#home-container').removeClass('blur');
-  //   $('#about-container').removeClass('blur');
-  //   $(`#modal-${id}`).removeClass('modal-color'); // remove opaque color
-  // });
