@@ -9,12 +9,12 @@
   overflow-y: auto; // enable scroll if needed
   background-color: white; // fallback
   background-color: rgba(255, 228, 228, 0.9);
-  opacity: 0; // gets shown by js
+  opacity: 1; // CHANGED - used to be 0 to get faded in w js
   -webkit-filter: none;
   filter: none; // don't blur modals
-  -webkit-transition: opacity 0.8s ease;
-  -moz-transition: opacity 0.8s ease;
-  transition: opacity 0.8s ease;
+  // -webkit-transition: opacity 0.8s ease; CHANGED
+  // -moz-transition: opacity 0.8s ease;
+  // transition: opacity 0.8s ease;
 }
 
 .modal-content {

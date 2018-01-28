@@ -7,15 +7,14 @@ $(document).ready(function() {
     $('#anim').css("display", "block"); // show transition anim
     $('body').addClass('modal-open'); // disabling scroll behind
     drawRect = true;
-    $('#work-container').addClass('blur'); // blurring bg
-    $('#home-container').addClass('blur');
-    // $('#about-container').addClass('blur');
-    setTimeout(function() {
-      $(`#modal-bg`).css("opacity", 1); // fade in modal bg
-    }, 810);  // occurring after blur and desat
+    // $('#work-container').addClass('blur'); // blurring bg
+    // $('#home-container').addClass('blur');
+    // setTimeout(function() {
+    //   $(`#modal-bg`).css("opacity", 1); // fade in modal bg
+    // }, 810);  // occurring after blur and desat
     setTimeout(function() {
       $(`#modal-${id}`).css("display", "block"); // show corres modal
-    }, 1600);
+    }, 800); // animation takes 20 frames
   });
 
 
