@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
 ///////////////////////
 //     VARIABLES     //
 ///////////////////////
@@ -43,7 +47,7 @@ body.modal-open {
 }
 
 #home-container {
-  width: 100vw;
+  // width: 100vw; // removed to get rid of horiz scroll
   min-height: 100vh;
   position: relative;
   box-sizing: border-box;
@@ -121,7 +125,7 @@ a.lower-nav {
 
 #about-container {
   box-sizing: border-box;
-  width: 100vw;
+  // width: 100vw; // removed to get rid of horiz scroll
   background-color: $off-white;
   color: #333;
   margin: 0;
@@ -169,20 +173,28 @@ a.lower-nav {
       font-size: 40px;
       text-transform: lowercase;
       display: block;
-      padding-top: 2em;
+      padding-top: 4rem;
       color: #222;
     }
     p.feature-text {
       letter-spacing: 1px;
-      font-size: 26px;
+      font-size: 1.7rem;
       text-align: center;
       color: #222;
     }
-    p.feature-text::first-line {
-      padding-left: 20px;
-      padding-right: 20px;
-      background-color: #008aff;
+    // p.feature-text::first-line {
+    p.feature-text {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      // background-color: rgba(0, 135, 255, 0.5);
+    }
+    p.feature-text .highlight {
+      background-color: rgba(0, 135, 255, 0.5);
       // background-color: rgba(255, 180, 82, 1.00);
+    }
+    .subfeature-text {
+      font-size: 1.2rem;
+      letter-spacing: 1.5px;
     }
   }
 }

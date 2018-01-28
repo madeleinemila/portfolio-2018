@@ -29,7 +29,8 @@ const graphGenerator = function(sketch) {
           // *******           SETUP           *******************************************
 
           sketch.setup = function() {
-            const graph = sketch.createCanvas(window.innerWidth, 240); // create canvas
+            // const graph = sketch.createCanvas(window.innerWidth, 240); // create canvas; orig vanilla
+            const graph = sketch.createCanvas( $(window).width(), 240 ); // create canvas, more accurate w jQuery
             // graph.parent('graph');  // then allocate to parent div
             //
             //
@@ -54,7 +55,9 @@ const graphGenerator = function(sketch) {
             });
 
             // randomTest
-            randomTest = sketch.random( deltas[2] );
+            // randomTest = sketch.random( deltas[2] );
+            // console.log( `randomTest`, randomTest );
+            randomTest = 10.5; // CHANGED - setting this value until more work can be done on interactive graph
           }
 
 
