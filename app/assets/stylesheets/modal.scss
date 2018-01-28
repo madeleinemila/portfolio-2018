@@ -43,6 +43,7 @@
     font-family: 'Crimson', serif;
     letter-spacing: 1px;
     font-style: italic;
+    line-height: 1.3rem;
   }
   p:last-of-type {
     padding-bottom: 3em;
@@ -70,10 +71,10 @@
 
 
 img.featured {
-  max-width: 1200px;
-  margin: 0 auto;
-  border: 1px #d9d2d2 solid;
-  box-shadow: 5px 5px 15px #d9d2d2;
+  max-width: 640px;
+  margin: 0 auto 5rem auto;
+  // border: 1px #d9d2d2 solid;
+  box-shadow: 5px 5px 15px #222;
 }
 
 
