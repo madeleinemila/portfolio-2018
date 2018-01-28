@@ -180,12 +180,13 @@ a.lower-nav {
       letter-spacing: 1px;
       font-size: 1.7rem;
       text-align: center;
+      // text-align: left;
       color: #222;
     }
     // p.feature-text::first-line {
     p.feature-text {
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
+      // padding-left: 1.5rem;
+      // padding-right: 1.5rem;
       // background-color: rgba(0, 135, 255, 0.5);
     }
     p.feature-text .highlight {
@@ -194,7 +195,8 @@ a.lower-nav {
     }
     .subfeature-text {
       font-size: 1.2rem;
-      letter-spacing: 1.5px;
+      letter-spacing: 1px;
+      text-align: justify;
     }
   }
 }
@@ -248,7 +250,7 @@ img.profile {
 
 .rotate {
   display: inline-block;
-  width: 200px;
+  // width: 200px;
   -webkit-transition: opacity 1s;
   -moz-transition: opacity 1s;
   transition: opacity 1s;

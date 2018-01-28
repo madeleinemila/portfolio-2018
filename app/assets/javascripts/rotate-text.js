@@ -1,8 +1,11 @@
-// *** 'from' text options
-const from = ['film', 'tape', 'hardware'];
+// // *** 'from' text options
+// const from = ['film', 'tape', 'hardware'];
+//
+// // ** 'to' text options - keep same length as 'from' // TODO put in one 2d array then?
+// const to = ['web delivery', 'web app', 'DMX over IP'];
 
-// ** 'to' text options - keep same length as 'from' // TODO put in one 2d array then?
-const to = ['web delivery', 'web app', 'DMX over IP'];
+const tech = ['film to streaming.', 'hardware to web apps.', 'videotape to data.', 'industry-specific protocols to IP.', 'cables to web GUIs.', 'meetings to borderless online collaboration.'];
+
 
 // counter to rotate through options
 let counter = 1;
@@ -16,10 +19,9 @@ const fadeOut = function(elem) {
 };
 
 const changeText = function(elem, a) {
-  // console.log(counter);
   elem.text( a[counter] );
   counter++;
-  if (counter > from.length - 1) counter = 0 ;
+  if (counter > a.length - 1) counter = 0 ;
 };
 
 const fadeIn = function(elem) {
@@ -29,9 +31,9 @@ const fadeIn = function(elem) {
 // ** MAIN FADE LOOP **
 const fadeLoop = function( $elem, a ) {
   setTimeout(() => { fadeOut( $elem ) }, 2000 );
-  setTimeout(() => { changeText( $elem, a ) }, 3000 );
-  setTimeout(() => { fadeIn( $elem ) }, 3000 );
-  setTimeout(() => { fadeLoop( $elem, a ) }, 3500);
+  setTimeout(() => { changeText( $elem, a ) }, 3500 );
+  setTimeout(() => { fadeIn( $elem ) }, 3500 );
+  setTimeout(() => { fadeLoop( $elem, a ) }, 6000);
 };
 
 
@@ -40,11 +42,8 @@ const fadeLoop = function( $elem, a ) {
 
 
 $(document).ready(function() {
-  // lhs 'from' text loop through
-  const $rotateFrom = $('#rotateFrom');
-  fadeLoop( $rotateFrom, from );
 
-  // rhs 'to' text loop through
-  const $rotateTo = $('#rotateTo');
-  fadeLoop( $rotateTo, to );
+  const $rotateTech = $('#rotateTech');
+  fadeLoop( $rotateTech, tech );
+
 });
