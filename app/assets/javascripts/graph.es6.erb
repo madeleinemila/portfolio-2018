@@ -3,7 +3,7 @@
 const graphGenerator = function(sketch) {
           let avgArray, avgArraySorted, avgRecent, avgAll;
           let yCenter, yLower, randomTest;
-          const delta = 40; // used during test
+          const delta = 40;
           const deltas = [];
 
 
@@ -29,22 +29,20 @@ const graphGenerator = function(sketch) {
           // *******           SETUP           *******************************************
 
           sketch.setup = function() {
-            // const graph = sketch.createCanvas(window.innerWidth, 240); // create canvas; orig vanilla
             const graph = sketch.createCanvas( $(window).width(), 240 ); // create canvas, more accurate w jQuery
-            // graph.parent('graph');  // then allocate to parent div
-            //
-            //
+
             // **** init display settings ***********
             sketch.noFill();
             sketch.stroke(255, 120);
             sketch.strokeWeight(3);
 
-
             // ******* bring in keystroke data *************
-            avgArray = <%= Keystroke.calc_avg_prev_array %>;
+            // avgArray = <%# Keystroke.calc_avg_prev_array %>;
+            avgArray = [10962.222779385957, 3522.7183825435354, 2091.0318534474545, 18240.166695606877]; // CHANGED manually setting values before live keystroke data is implemented
             avgArraySorted = avgArray.slice().sort((a, b) => a - b ); // sort numerically
             avgRecent = avgArray[ avgArray.length - 1 ];
-            avgAll = <%= Keystroke.calc_avg_all %>;
+            // avgAll = <%# Keystroke.calc_avg_all %>;
+            avgAll =  6077.478743727049; // CHANGED manually setting values before live keystroke data is implemented
             yCenter = mapCenter( avgAll );
             yLower = sketch.height - yCenter;
 
@@ -54,10 +52,8 @@ const graphGenerator = function(sketch) {
               deltas.push( v );
             });
 
-            // randomTest
             // randomTest = sketch.random( deltas[2] );
-            // console.log( `randomTest`, randomTest );
-            randomTest = 10.5; // CHANGED - setting this value until more work can be done on interactive graph
+            randomTest = 10.5; // CHANGED - manually setting this value until more work can be done on interactive graph
           }
 
 
@@ -66,12 +62,10 @@ const graphGenerator = function(sketch) {
           // *******            DRAW           *******************************************
 
           sketch.draw = function() {
-            // sketch.background(255, 0, 0);
             sketch.clear();
 
 
             // GRAPHING
-
 
             sketch.line( 0, yCenter, sketch.width, yCenter );
 
@@ -131,5 +125,4 @@ const graphGenerator = function(sketch) {
           }
 };
 
-// const $graph = $("#graph")
 const p5_graph = new p5(graphGenerator, "graph");  // args: function for sketch, id of div to attach to
