@@ -30,10 +30,10 @@ const fadeIn = function(elem) {
 
 // ** MAIN FADE LOOP **
 const fadeLoop = function( $elem, a ) {
-  setTimeout(() => { fadeOut( $elem ) }, 2000 );
-  setTimeout(() => { changeText( $elem, a ) }, 3250 );
-  setTimeout(() => { fadeIn( $elem ) }, 3250 );
-  setTimeout(() => { fadeLoop( $elem, a ) }, 4250);
+  setTimeout(() => { fadeOut( $elem ) }, 1000 );
+  setTimeout(() => { changeText( $elem, a ) }, 2300 );
+  setTimeout(() => { fadeIn( $elem ) }, 2300 );
+  setTimeout(() => { fadeLoop( $elem, a ) }, 3800);
 };
 
 

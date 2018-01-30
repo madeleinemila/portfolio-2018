@@ -211,6 +211,15 @@ a.lower-nav {
   }
 }
 
+.link-underline {
+  text-decoration: none;
+  color: #222;
+}
+
+.link-underline:hover {
+  text-decoration: underline;
+}
+
 // **** flex area ****
 
 .flex-container {
