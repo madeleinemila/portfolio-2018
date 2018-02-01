@@ -7,7 +7,7 @@
   position: fixed;
   left: 0;
   top: 0;
-  background-color: #23548A;
+  background-color: #111;
 
   .load-graphic1 {
     position: fixed;
@@ -20,7 +20,7 @@
     width: 50px;
     height: 50px;
     // border-left: 1px rgba(255, 255, 255, 0.5) solid;
-    border-top: 1px rgba(255, 255, 255, 0.5) solid;
+    border-top: 1px rgba(0, 255, 208, 0.5) solid;
     -webkit-animation: move 2s ease-in-out infinite;
     animation: move 2s ease-in-out infinite;
   }
