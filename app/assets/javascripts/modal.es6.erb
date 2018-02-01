@@ -31,7 +31,9 @@ $(document).ready(function() {
   });
 
   const closeModal = function() {
+    $(`#modal-${ modalId }`).scrollTop(0); // reset scroll to top
     $(`#modal-${ modalId }`).css("display", "none"); // hide corres modal
+
     $('body').removeClass('modal-open'); // reenable scroll
     // $('#work-container').removeClass('blur'); // remove blur
     // $('#home-container').removeClass('blur');
