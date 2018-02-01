@@ -6,6 +6,7 @@ const graphGenerator = function(sketch) {
           // let delta = 40;
           const deltas = [];
           const breakPoint = 800;
+          let count = 0;
 
 
           // ******* Helper Functions ****************************************************
@@ -136,7 +137,7 @@ const graphGenerator = function(sketch) {
             sketch.curveVertex(sketch.width, yCenter);
             sketch.endShape();
 
-
+            count++;
           }
 
 

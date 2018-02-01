@@ -40,7 +40,7 @@ $(window).load(function(){  // after images etc have loaded
 const resizeRotateContainer = function() {
   if (window.innerWidth < 740) { // 740 breakpoint for text to new line
     const container = document.getElementById('rotate-container');
-    container.innerHTML = `During a career in film, television and live entertainment tech, I saw firsthand many technological transitions:<br /><span class="rotate" id="rotateTech">from cables to web GUIs.</span>`;
+    container.innerHTML = `During a career in film, television and live entertainment tech, I experienced firsthand many technological transitions:<br /><span class="rotate" id="rotateTech">from cables to web GUIs.</span>`;
   }
 };
 
