@@ -14,7 +14,7 @@ $(document).ready(function() {
 });
 
 $(window).resize(function() {
-  resizeRotateContainer();
+  resizeRotateContainerLive(); // stop rotation
   resizeByline();
 });
 
@@ -29,6 +29,8 @@ $(window).load(function(){  // after images etc have loaded
      scrollTo(document.body, anchor.offsetTop, 0);
      hidePreloader();
     }, 100);
+    const $rotateTech = $('#rotateTech');
+    fadeLoop( $rotateTech, tech );
   // }
 });
 
@@ -37,16 +39,25 @@ $(window).load(function(){  // after images etc have loaded
 
 // ******* Component functions *********
 
+const newLineBreakPoint = 800;
+
 const resizeRotateContainer = function() {
-  if (window.innerWidth < 740) { // 740 breakpoint for text to new line
+  if (window.innerWidth < newLineBreakPoint) { //  breakpoint for text to new line
     const container = document.getElementById('rotate-container');
     container.innerHTML = `During a career in film, television and live entertainment tech, I experienced firsthand many technological transitions:<br /><span class="rotate" id="rotateTech">from cables to web GUIs.</span>`;
   }
 };
 
+const resizeRotateContainerLive = function() {
+  if (window.innerWidth < newLineBreakPoint) { //  breakpoint for text to new line
+    const container = document.getElementById('rotate-container');
+    container.innerHTML = `During a career in film, television and live entertainment tech, I experienced firsthand many technological transitions: from hardware to apps.`;
+  }
+};
+
 
 const resizeByline = function() {
-  if (window.innerWidth < 740) {
+  if (window.innerWidth < newLineBreakPoint) {
     const byline = document.getElementsByClassName('home-byline')[0];
     byline.innerHTML = "WEB DEVELOPER";
   }

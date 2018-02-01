@@ -3,7 +3,6 @@
 const graphGenerator = function(sketch) {
           let avgArray, avgArraySorted, avgRecent, avgAll;
           let yCenter, yLower, randomTest;
-          // let delta = 40;
           const deltas = [];
           const breakPoint = 800;
           let count = 0;
@@ -44,18 +43,18 @@ const graphGenerator = function(sketch) {
             if (window.innerWidth >= breakPoint ) {
               const graph = sketch.createCanvas( $(window).width(), 240 ); // create canvas, more accurate w jQuery
             } else {
-              const graph = sketch.createCanvas( $(window).width(), 180 );
-              // delta = 20;
+              const graph = sketch.createCanvas( $(window).width(), 140 );
             }
 
             // **** init display settings ***********
             sketch.noFill();
-            sketch.stroke(255, 120);
-            // if (window.innerWidth >= breakPoint ) {
-              // sketch.strokeWeight(3);
-            // } else {
-              sketch.strokeWeight(1);
-            // }
+            if (window.innerWidth >= 450 ) { // picked 450 as a breakpoint
+              sketch.stroke(255, 120);
+            } else {
+              sketch.stroke(255, 0); // cheating making graph disappear for smaller screens
+            }
+            sketch.strokeWeight(1);
+
 
             // ******* bring in keystroke data *************
             // avgArray = <%# Keystroke.calc_avg_prev_array %>;
@@ -145,5 +144,6 @@ const graphGenerator = function(sketch) {
             sketch.resizeCanvas( $(window).width(), 240 );
           }
 };
+
 
 const p5_graph = new p5(graphGenerator, "graph");  // args: function for sketch, id of div to attach to

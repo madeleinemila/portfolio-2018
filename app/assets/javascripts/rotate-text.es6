@@ -41,9 +41,9 @@ const fadeLoop = function( $elem, a ) {
 
 
 
-$(window).load(function() { // moved after document.ready so resize could happen before rotate
+// $(window).load(function() { // moved after document.ready so resize could happen before rotate
 
-  const $rotateTech = $('#rotateTech');
-  fadeLoop( $rotateTech, tech );
+  // const $rotateTech = $('#rotateTech');
+  // fadeLoop( $rotateTech, tech );
 
-});
+// });
