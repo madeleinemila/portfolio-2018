@@ -4,7 +4,7 @@
 // // ** 'to' text options - keep same length as 'from' // TODO put in one 2d array then?
 // const to = ['web delivery', 'web app', 'DMX over IP'];
 
-const tech = ['from film to streaming.', 'from hardware to web apps.', 'from videotape to data.', 'from industry-specific protocols to IP.', 'from cables to web GUIs.', 'from meetings to borderless online collaboration.'];
+const tech = ['from film to streaming.', 'from hardware to web apps.', 'from videotape to data.', 'from industry-specific protocols to IP.', 'from cables to web GUIs.'];
 
 
 // counter to rotate through options
@@ -31,9 +31,9 @@ const fadeIn = function(elem) {
 // ** MAIN FADE LOOP **
 const fadeLoop = function( $elem, a ) {
   setTimeout(() => { fadeOut( $elem ) }, 1000 );
-  setTimeout(() => { changeText( $elem, a ) }, 2300 );
-  setTimeout(() => { fadeIn( $elem ) }, 2300 );
-  setTimeout(() => { fadeLoop( $elem, a ) }, 3800);
+  setTimeout(() => { changeText( $elem, a ) }, 1800 );
+  setTimeout(() => { fadeIn( $elem ) }, 1800 );
+  setTimeout(() => { fadeLoop( $elem, a ) }, 3000);
 };
 
 
