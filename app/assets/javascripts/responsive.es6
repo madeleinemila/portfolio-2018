@@ -23,16 +23,19 @@ $(window).resize(function() {
 $(window).load(function(){  // after images etc have loaded
   // JUMP TO 'HOME' PAGE IN MIDDLE OF SCREEN
   const anchor = document.getElementById('home');
-  if (window.innerWidth > 640) {
+  // if (window.innerWidth > 640) {
    setTimeout(function(){   // had to put scrollTo inside 100ms timeout to work in recent Chrome
       // scrollTo( 0, window.innerHeight + 85 ); // TODO change magic number 85, fix for mobile
      scrollTo(document.body, anchor.offsetTop, 0);
+     hidePreloader();
     }, 100);
-  }
+  // }
 });
 
 
 
+
+// ******* Component functions *********
 
 const resizeRotateContainer = function() {
   if (window.innerWidth < 740) { // 740 breakpoint for text to new line
@@ -47,4 +50,10 @@ const resizeByline = function() {
     const byline = document.getElementsByClassName('home-byline')[0];
     byline.innerHTML = "WEB DEVELOPER";
   }
+};
+
+const hidePreloader = function() {
+  const $preloader = $('#preloader');
+  // preloader.style.display = "none";
+  $preloader.fadeOut(300);
 };
