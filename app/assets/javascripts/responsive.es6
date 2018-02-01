@@ -14,7 +14,7 @@ $(document).ready(function() {
 });
 
 $(window).resize(function() {
-  resizeRotateContainerLive(); // stop rotation
+  resizeRotateContainer();
   resizeByline();
 });
 
@@ -29,6 +29,10 @@ $(window).load(function(){  // after images etc have loaded
      scrollTo(document.body, anchor.offsetTop, 0);
      hidePreloader();
     }, 100);
+    clearTimeout(timer1);
+    clearTimeout(timer2);
+    clearTimeout(timer3);
+    clearTimeout(timer4);
     const $rotateTech = $('#rotateTech');
     fadeLoop( $rotateTech, tech );
   // }
@@ -45,15 +49,22 @@ const resizeRotateContainer = function() {
   if (window.innerWidth < newLineBreakPoint) { //  breakpoint for text to new line
     const container = document.getElementById('rotate-container');
     container.innerHTML = `During a career in film, television and live entertainment tech, I experienced firsthand many technological transitions:<br /><span class="rotate" id="rotateTech">from cables to web GUIs.</span>`;
+    const $rotateTech = $('#rotateTech');
+    fadeLoop( $rotateTech, tech );
+  } else {
+    const container = document.getElementById('rotate-container');
+    container.innerHTML = `During a career in film, television and live entertainment tech, I experienced firsthand many technological transitions: <span class="rotate" id="rotateTech">from cables to web GUIs.</span>`;
+    const $rotateTech = $('#rotateTech');
+    fadeLoop( $rotateTech, tech );
   }
 };
 
-const resizeRotateContainerLive = function() {
-  if (window.innerWidth < newLineBreakPoint) { //  breakpoint for text to new line
-    const container = document.getElementById('rotate-container');
-    container.innerHTML = `During a career in film, television and live entertainment tech, I experienced firsthand many technological transitions: from hardware to apps.`;
-  }
-};
+// const resizeRotateContainerLive = function() {
+//   if (window.innerWidth < newLineBreakPoint) { //  breakpoint for text to new line
+//     const container = document.getElementById('rotate-container');
+//     container.innerHTML = `During a career in film, television and live entertainment tech, I experienced firsthand many technological transitions: from hardware to apps.`;
+//   }
+// };
 
 
 const resizeByline = function() {

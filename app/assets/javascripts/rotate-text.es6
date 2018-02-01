@@ -5,7 +5,7 @@
 // const to = ['web delivery', 'web app', 'DMX over IP'];
 
 const tech = ['from film to streaming.', 'from hardware to web apps.', 'from videotape to data.', 'from proprietary protocols to IP.', 'from cables to web GUIs.'];
-
+let timer1, timer2, timer3, timer4;
 
 // counter to rotate through options
 let counter = 1;
@@ -30,10 +30,10 @@ const fadeIn = function(elem) {
 
 // ** MAIN FADE LOOP **
 const fadeLoop = function( $elem, a ) {
-  setTimeout(() => { fadeOut( $elem ) }, 1000 );
-  setTimeout(() => { changeText( $elem, a ) }, 1800 );
-  setTimeout(() => { fadeIn( $elem ) }, 1800 );
-  setTimeout(() => { fadeLoop( $elem, a ) }, 3000);
+  timer1 = setTimeout(() => { fadeOut( $elem ) }, 1000 );
+  timer2 = setTimeout(() => { changeText( $elem, a ) }, 1800 );
+  timer3 = setTimeout(() => { fadeIn( $elem ) }, 1800 );
+  timer4 = setTimeout(() => { fadeLoop( $elem, a ) }, 3000);
 };
 
 

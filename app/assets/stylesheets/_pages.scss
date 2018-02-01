@@ -334,6 +334,10 @@ img.profile {
   padding-bottom: 1rem !important;
 }
 
+.no-margin-bottom {
+  margin-bottom: 0;
+}
+
 .no-whitespace-top {
   margin-top: 0;
 }
@@ -397,14 +401,9 @@ iframe {
     width: 100% !important;
   }
 
-  // .featured {
-  //   width: 100% !important;
-  // }
   iframe {
     width: 100%;
   }
-
-
 
   .thumb {
     display: block;
@@ -423,5 +422,9 @@ iframe {
   .home-byline {
     letter-spacing: 4px;
     font-size: 74%;
+  }
+
+  .subfeature-text {
+    font-size: 1rem !important;
   }
 }
