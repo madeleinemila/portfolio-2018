@@ -355,6 +355,27 @@ iframe {
   width: 100%;
 }
 
+
+
+/// BOTTOM nav
+
+#nav-return {
+  background-color: #222;
+  height: 7rem;
+  cursor: pointer;
+}
+
+#nav-return > p {
+  text-align: center;
+  color: $off-white;
+  font-size: 44px;
+  line-height: 0;
+}
+
+
+
+
+
 ////////// RESPONSIVE ///////////
 
 // @media only screen and (max-width: 740px) {  // for rotate text breakpoint
