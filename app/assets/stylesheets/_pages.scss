@@ -256,6 +256,8 @@ ul {
 img.profile {
   max-width: 200px;
   mix-blend-mode: luminosity;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
 }
 
 
@@ -282,6 +284,10 @@ img.profile {
 .no-opacity {
   opacity: 0;
 }
+
+// #rotate-container {
+//
+// }
 
 //////////// WORK ///////////////////
 
@@ -323,21 +329,73 @@ img.profile {
   width: 100px;
 }
 
+.no-whitespace-bottom {
+  margin-bottom: 0;
+  padding-bottom: 1rem !important;
+}
+
+.no-whitespace-top {
+  margin-top: 0;
+}
+
+/////////// GRAPH //////////////
+
+#graph {
+  padding-bottom: 3rem;
+}
 
 ///////// VIDEO ///////////
 
 .video-lge {
-  max-width: 640px;
+  max-width: 100%;
   margin-bottom: 3rem;
 }
 
+iframe {
+  width: 100%;
+}
 
 ////////// RESPONSIVE ///////////
+
+// @media only screen and (max-width: 740px) {  // for rotate text breakpoint
+//
+//
+// }
+
+
 
 @media only screen and (max-width: 640px) {
   .home-byline {
     font-size: 0.9rem;
     padding: 0 1rem;
     line-height: 2rem;
+  }
+
+  .modal-content {
+    width: 100% !important;
+  }
+
+  // .featured {
+  //   width: 100% !important;
+  // }
+
+
+  .thumb {
+    display: block;
+    margin: 0 auto;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  h3.overlap {
+    left: 50% !important;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    text-align: center !important;
+  }
+
+  .home-byline {
+    letter-spacing: 4px;
+    font-size: 74%;
   }
 }

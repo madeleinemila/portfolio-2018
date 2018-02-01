@@ -7,7 +7,7 @@
     <div class="about-key-content">
       <h2>hi!</h2>
       <p class="feature-text"><span class="highlight">I'm Madeleine, a junior web developer from Sydney.</span></p>
-      <p class="subfeature-text">During a career in film, television and live entertainment tech, I saw firsthand many technological transitions: <span class="rotate" id="rotateTech">from cables to web GUIs.</span></p>
+      <p class="subfeature-text" id="rotate-container">During a career in film, television and live entertainment tech, I saw firsthand many technological transitions: <span class="rotate" id="rotateTech">from cables to web GUIs.</span></p>
       <p class="subfeature-text">Inspired by the innovative and creative potential of web-based tech, I embarked on studying web development.</p>
       <p class="subfeature-text">Along the way I discovered that I absolutely love to build things with code.</p>
     </div>
@@ -19,7 +19,7 @@
           <%= image_tag "profile.jpg", :class => "profile" %>
         </div>
         <div class="flex-cell-1 mini-list">
-          <h4>CONNECT</h4>
+          <h4 class="no-whitespace-top">CONNECT</h4>
           <ul>
             <li><%= mail_to "maddi.milasas@gmail.com", "Email: maddi.milasas (at) gmail.com", :class => "link-underline", :target => "_blank" %></li>
             <!-- <li>Resume</li> coming soon... -->
@@ -29,7 +29,7 @@
           </ul>
         </div>
         <div class="flex-cell-1 mini-list">
-          <h4>SKILLS</h4>
+          <h4 class="no-whitespace-top">SKILLS</h4>
           <ul>
             <li>JavaScript - including jQuery, React, p5, Node</li>
             <li>Ruby</li>

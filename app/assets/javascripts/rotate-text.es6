@@ -4,7 +4,7 @@
 // // ** 'to' text options - keep same length as 'from' // TODO put in one 2d array then?
 // const to = ['web delivery', 'web app', 'DMX over IP'];
 
-const tech = ['from film to streaming.', 'from hardware to web apps.', 'from videotape to data.', 'from industry-specific protocols to IP.', 'from cables to web GUIs.'];
+const tech = ['from film to streaming.', 'from hardware to web apps.', 'from videotape to data.', 'from proprietary protocols to IP.', 'from cables to web GUIs.'];
 
 
 // counter to rotate through options
@@ -41,7 +41,7 @@ const fadeLoop = function( $elem, a ) {
 
 
 
-$(document).ready(function() {
+$(window).load(function() { // moved after document.ready so resize could happen before rotate
 
   const $rotateTech = $('#rotateTech');
   fadeLoop( $rotateTech, tech );

@@ -3,8 +3,9 @@
 const graphGenerator = function(sketch) {
           let avgArray, avgArraySorted, avgRecent, avgAll;
           let yCenter, yLower, randomTest;
-          const delta = 40;
+          // let delta = 40;
           const deltas = [];
+          const breakPoint = 800;
 
 
           // ******* Helper Functions ****************************************************
@@ -18,23 +19,42 @@ const graphGenerator = function(sketch) {
           }
 
           function mapGraph( value ) {
-            return sketch.map(
-              value,
-              0, avgArraySorted[ avgArraySorted.length - 1 ], // original range // TODO
-              0, sketch.height/2
-            );
+            if (window.innerWidth >= breakPoint ) {
+              return sketch.map(
+                value,
+                0, avgArraySorted[ avgArraySorted.length - 1 ], // original range // TODO
+                0, sketch.height/2
+              );
+            } else {
+              return sketch.map(
+                value,
+                0, avgArraySorted[ avgArraySorted.length - 1 ], // original range // TODO
+                0, sketch.height/4
+              );
+            }
+
+
           }
 
 
           // *******           SETUP           *******************************************
 
           sketch.setup = function() {
-            const graph = sketch.createCanvas( $(window).width(), 240 ); // create canvas, more accurate w jQuery
+            if (window.innerWidth >= breakPoint ) {
+              const graph = sketch.createCanvas( $(window).width(), 240 ); // create canvas, more accurate w jQuery
+            } else {
+              const graph = sketch.createCanvas( $(window).width(), 180 );
+              // delta = 20;
+            }
 
             // **** init display settings ***********
             sketch.noFill();
             sketch.stroke(255, 120);
-            sketch.strokeWeight(3);
+            // if (window.innerWidth >= breakPoint ) {
+              // sketch.strokeWeight(3);
+            // } else {
+              sketch.strokeWeight(1);
+            // }
 
             // ******* bring in keystroke data *************
             // avgArray = <%# Keystroke.calc_avg_prev_array %>;
