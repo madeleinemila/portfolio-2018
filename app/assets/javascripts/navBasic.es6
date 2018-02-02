@@ -1,14 +1,21 @@
 $(document).ready(function() {
 
   $('#about').on('click', function() {
-    // window.scrollTo( 0, 0 );
     smoothScroll( 0 );
-    // console.log( this );
+  });
+
+  $('#home-to-work').on('click', function() {
+     smoothScrollTarget( $('#work') );
+  });
+
+  $('#about-to-home').on('click', function() {
+     smoothScrolling = true;
+     smoothScrollTarget( $('#home') );
   });
 
   $('#nav-return').on('click', function() {
-     const anchor = document.getElementById('home'); // TODO could cache this, called twice
-     scrollTo(document.body, anchor.offsetTop, 0);
+     smoothScrolling = true;
+     smoothScrollTarget( $('#home') );
   });
 
 });
@@ -20,9 +27,18 @@ $(document).ready(function() {
 
 const smoothScroll = function( y ) {
   $('html, body').animate( { scrollTop: y }, 500);
-
 };
+
+const smoothScrollTarget = function( target ) {
+   $('html, body').animate( { scrollTop: target.offset().top }, 500);
+};
+
+
 //
+
+// function smoothScrollingTo(target){
+//   $('html,body').animate({scrollTop:$(target).offset().‌​top}, 500);
+// }
 //
 // $('a[href*=\\#]').on('click', function(event){
 //     event.preventDefault();
