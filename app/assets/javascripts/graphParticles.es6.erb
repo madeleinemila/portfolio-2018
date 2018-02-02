@@ -7,8 +7,10 @@ const graphGenerator = function(sketch) {
 
 
           let yLower, randomTest;
-          const yCenter = 166;
-          const deltas = [72, 23, 14, 120]; // for graph aesthetics
+          let yCenter;
+          const center = 6077;
+          const points = [2091, 3522, 10962, 18240]; // original values from keystroke experiments, kept for graph aesthetics
+          const deltas = [72, 23, 14, 120];
           const breakPoint = 800;
           // let count = 0;
 
@@ -21,29 +23,29 @@ const graphGenerator = function(sketch) {
 
           // ******* Helper Functions ****************************************************
 
-          // function mapCenter( value ) {
-          //   return sketch.map(  // ** p5 map - map to a new range
-          //     value,
-          //     0, avgArraySorted[ avgArraySorted.length - 1 ], // original range
-          //     sketch.height, 20
-          //   ); // mapped range, reversed for natural y axis w 0 at bottom, but not all the way to 0 to avoid graphic cut off
-          // }
+          function mapCenter( value ) {
+            return sketch.map(
+              value,
+              0, points[ points.length - 1 ],
+              sketch.height, 20
+            ); // mapped range, reversed for natural y axis w 0 at bottom, but not all the way to 0 to avoid graphic cut off
+          }
 
-          // function mapGraph( value ) {
-          //   if (window.innerWidth >= breakPoint ) {
-          //     return sketch.map(
-          //       value,
-          //       0, avgArraySorted[ avgArraySorted.length - 1 ], // original range // TODO
-          //       0, sketch.height/2
-          //     );
-          //   } else {
-          //     return sketch.map(
-          //       value,
-          //       0, avgArraySorted[ avgArraySorted.length - 1 ], // original range // TODO
-          //       0, sketch.height/4
-          //     );
-          //   }
-          // }
+          function mapGraph( value ) {
+            if (window.innerWidth >= breakPoint ) {
+              return sketch.map(
+                value,
+                0, points[ points.length - 1 ],
+                0, sketch.height/2
+              );
+            } else {
+              return sketch.map(
+                value,
+                0, points[ points.length - 1 ],
+                0, sketch.height/4
+              );
+            }
+          }
 
           // ****** Particle class *********
           function Particle( x, y, a, size ) {
@@ -93,13 +95,13 @@ const graphGenerator = function(sketch) {
             // avgArraySorted = avgArray.slice().sort((a, b) => a - b ); // sort numerically
             // avgRecent = avgArray[ avgArray.length - 1 ];
             // avgAll =  6077.478743727049; // CHANGED manually setting values before live keystroke data is implemented
+            yCenter = mapCenter( center );
             yLower = sketch.height - yCenter;
 
-            // CONVERT DB VALUES INTO DELTAS
-            // avgArray.forEach((a) => {
+            // CONVERT VALUES INTO DELTAS
+            // points.forEach((a) => {
             //   const v = mapGraph( a );
             //   deltas.push( v );
-            //   console.log(deltas, 'deltas');
             // });
 
             // populate particles arrays
