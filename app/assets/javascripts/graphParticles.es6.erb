@@ -15,7 +15,7 @@ const graphGenerator = function(sketch) {
           let deltas = [72, 23, 14, 120];
           const deltasSmall = [36, 11, 7, 60];
           const breakPoint = 800;
-          // let count = 0;
+          let count = 0;
 
 
 
@@ -216,12 +216,18 @@ const graphGenerator = function(sketch) {
 
           //// ******* ON SCROLL *********
           sketch.mouseWheel = function() {
-            makeParticle();
+            if (particles.length < 60) {
+              makeParticle();
+            }
           }
 
           ///// ****** ON SHAKE **********
           sketch.deviceShaken = function() {
-            makeParticle();
+            for (let i = 0; i < 10; i++) {
+              if (particles.length < 60) {
+                makeParticle();
+              }
+            }
           };
 
           ///// **** ON WINDOW RESIZE ********
