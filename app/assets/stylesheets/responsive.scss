@@ -1,0 +1,51 @@
+
+
+////////// RESPONSIVE ///////////
+
+
+@media only screen and (max-width: 640px) {
+  .home-byline {
+    font-size: 0.9rem;
+    padding: 0 1rem;
+    line-height: 2rem;
+  }
+
+  .modal-content {
+    width: 100% !important;
+  }
+
+  iframe {
+    width: 100%;
+  }
+
+  .featured {
+    width: 100%;
+  }
+
+  .thumb {
+    display: block;
+    margin: 0 auto;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  h3.overlap {
+    left: 50% !important;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    text-align: center !important;
+  }
+
+  .home-byline {
+    letter-spacing: 4px;
+    font-size: 74%;
+  }
+
+  .subfeature-text {
+    font-size: 1rem !important;
+  }
+
+  .close-lower {
+    visibility: visible;
+  }
+}

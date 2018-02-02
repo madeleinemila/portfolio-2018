@@ -63,6 +63,12 @@
 }
 
 
+.close-lower {
+  display: block;
+  visibility: hidden; // only shows up on smaller screens
+}
+
+
 // MODAL TEXT & IMAGES
 
 .content {
@@ -71,7 +77,8 @@
 
 
 img.featured {
-  // max-width: 640px;
+  display: block;
+  max-width: 800px;
   width: 100%;
   margin: 0 auto 5rem auto;
   // border: 1px #d9d2d2 solid;
