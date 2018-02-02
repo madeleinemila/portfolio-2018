@@ -12,7 +12,8 @@ const graphGenerator = function(sketch) {
           let yCenter;
           const center = 6077;
           const points = [2091, 3522, 10962, 18240]; // original values from keystroke experiments, kept for graph aesthetics
-          const deltas = [72, 23, 14, 120];
+          let deltas = [72, 23, 14, 120];
+          const deltasSmall = [36, 11, 7, 60];
           const breakPoint = 800;
           // let count = 0;
 
@@ -89,6 +90,7 @@ const graphGenerator = function(sketch) {
               const graph = sketch.createCanvas( $(window).width(), 240 ); // create canvas, more accurate w jQuery
             } else {
               const graph = sketch.createCanvas( $(window).width(), 140 );
+              deltas = deltasSmall;
             }
 
             // **** init display settings ***********
