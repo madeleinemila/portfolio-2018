@@ -230,6 +230,13 @@ const graphGenerator = function(sketch) {
             }
           };
 
+          ///// ****** ON SHAKE **********
+          sketch.deviceMoved = function() {
+            if (particles.length < 60) {
+              makeParticle();
+            }
+          };
+
           ///// **** ON WINDOW RESIZE ********
           sketch.windowResized = function() {
             sketch.resizeCanvas( $(window).width(), 240 );
