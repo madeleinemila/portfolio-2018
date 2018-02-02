@@ -49,3 +49,9 @@
     visibility: visible;
   }
 }
+
+@media only screen and (max-width: 374px) {
+  .subfeature-text {
+    font-size: 0.9rem !important;
+  }
+}

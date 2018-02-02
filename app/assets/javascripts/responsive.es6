@@ -23,6 +23,7 @@ $(window).resize(function() {
 $(window).load(function(){  // after images etc have loaded
   // JUMP TO 'HOME' PAGE IN MIDDLE OF SCREEN
   const anchor = document.getElementById('home');
+  const p5_graph = new p5(graphGenerator, "graph");  // args: function for sketch, id of div to attach to
   // if (window.innerWidth > 640) {
    setTimeout(function(){   // had to put scrollTo inside 100ms timeout to work in recent Chrome
       // scrollTo( 0, window.innerHeight + 85 ); // TODO change magic number 85, fix for mobile

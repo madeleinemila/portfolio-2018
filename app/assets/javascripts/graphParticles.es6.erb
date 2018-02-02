@@ -1,0 +1,208 @@
+// WRITTEN IN INSTANCE MODE FOR MULTPLE CANVASES ON ONE WEBPAGE
+
+const graphGenerator = function(sketch) {
+          // let avgArray, avgRecent;
+          // let avgArray, avgArraySorted, avgRecent, avgAll;
+          // let yCenter, yLower, randomTest;
+
+
+          let yLower, randomTest;
+          const yCenter = 166;
+          const deltas = [72, 23, 14, 120]; // for graph aesthetics
+          const breakPoint = 800;
+          // let count = 0;
+
+
+          let particles = [];
+          const numParticles = 30;
+          const randomPos = new Array( numParticles );
+          const randomVel = new Array( numParticles );
+
+
+          // ******* Helper Functions ****************************************************
+
+          // function mapCenter( value ) {
+          //   return sketch.map(  // ** p5 map - map to a new range
+          //     value,
+          //     0, avgArraySorted[ avgArraySorted.length - 1 ], // original range
+          //     sketch.height, 20
+          //   ); // mapped range, reversed for natural y axis w 0 at bottom, but not all the way to 0 to avoid graphic cut off
+          // }
+
+          // function mapGraph( value ) {
+          //   if (window.innerWidth >= breakPoint ) {
+          //     return sketch.map(
+          //       value,
+          //       0, avgArraySorted[ avgArraySorted.length - 1 ], // original range // TODO
+          //       0, sketch.height/2
+          //     );
+          //   } else {
+          //     return sketch.map(
+          //       value,
+          //       0, avgArraySorted[ avgArraySorted.length - 1 ], // original range // TODO
+          //       0, sketch.height/4
+          //     );
+          //   }
+          // }
+
+          // ****** Particle class *********
+          function Particle( x, y, a, size ) {
+            this.x = x;
+            this.y = y;
+            this.a = a;
+            this.size = size;
+
+            this.draw = function() {
+              sketch.noStroke();
+              sketch.fill( 255, this.a );
+              sketch.ellipse( this.x, this.y, this.size, this.size );
+            }
+          }
+
+
+          // reset graph styling
+          function graphInit() {
+            sketch.noFill();
+            if (window.innerWidth >= 450 ) { // picked 450 as a breakpoint
+              sketch.stroke(255, 120);
+            } else {
+              sketch.stroke(255, 0); // cheating making graph disappear for smaller screens
+            }
+            sketch.strokeWeight(1);
+          }
+
+
+
+
+
+
+          // *******           SETUP           *******************************************
+
+          sketch.setup = function() {
+            if (window.innerWidth >= breakPoint ) {
+              const graph = sketch.createCanvas( $(window).width(), 240 ); // create canvas, more accurate w jQuery
+            } else {
+              const graph = sketch.createCanvas( $(window).width(), 140 );
+            }
+
+            // **** init display settings ***********
+            graphInit();
+
+
+            // avgArray = [10962, 3522, 2091, 18240];
+            // avgArraySorted = avgArray.slice().sort((a, b) => a - b ); // sort numerically
+            // avgRecent = avgArray[ avgArray.length - 1 ];
+            // avgAll =  6077.478743727049; // CHANGED manually setting values before live keystroke data is implemented
+            yLower = sketch.height - yCenter;
+
+            // CONVERT DB VALUES INTO DELTAS
+            // avgArray.forEach((a) => {
+            //   const v = mapGraph( a );
+            //   deltas.push( v );
+            //   console.log(deltas, 'deltas');
+            // });
+
+            // populate particles arrays
+            for (let i = 0; i < randomPos.length; i++) {
+              randomPos[i] = Math.floor( Math.random() * sketch.width );
+              randomVel[i] = Math.random() * 2 - 1;
+              particles.push( new Particle( randomPos[i], yCenter, 255, Math.abs( randomVel[i] ) * 3 ));  // using velocity to generate size; further away = tinier = slower, like real distance. idea: could do inverse, like bokeh
+            }
+
+            randomTest = 10.5; // CHANGED - manually setting this value until more work can be done on interactive graph
+          }
+
+
+
+
+
+
+
+
+          // *******            DRAW           *******************************************
+
+          sketch.draw = function() {
+            sketch.clear();
+
+
+            // GRAPHING
+            graphInit();
+
+            sketch.line( 0, yCenter, sketch.width, yCenter );
+
+            sketch.beginShape();
+            sketch.curveVertex(0,  yCenter);
+            sketch.curveVertex(0,  yCenter);
+            sketch.curveVertex(sketch.width*1/4,  yCenter + deltas[0]);
+            sketch.curveVertex(sketch.width*2/4,  yCenter - deltas[0]);
+            sketch.curveVertex(sketch.width*3/4,  yCenter + deltas[0]);
+            sketch.curveVertex(sketch.width, yCenter);
+            sketch.curveVertex(sketch.width, yCenter);
+            sketch.endShape();
+
+            sketch.beginShape();
+            sketch.curveVertex(0,  yCenter);
+            sketch.curveVertex(0,  yCenter);
+            sketch.curveVertex(sketch.width*1/5,  yCenter + deltas[1]);
+            sketch.curveVertex(sketch.width*2/5,  yCenter - deltas[1]);
+            sketch.curveVertex(sketch.width*3/5,  yCenter + deltas[1]);
+            sketch.curveVertex(sketch.width*4/5,  yCenter + deltas[1]);
+            sketch.curveVertex(sketch.width, yCenter);
+            sketch.curveVertex(sketch.width, yCenter);
+            sketch.endShape();
+
+
+            sketch.beginShape();
+            sketch.curveVertex(0,  yCenter);
+            sketch.curveVertex(0,  yCenter);
+            sketch.curveVertex(sketch.width*1/6,  yCenter + (yLower-10));
+            sketch.curveVertex(sketch.width*2/6,  yCenter - randomTest);
+            sketch.curveVertex(sketch.width*3/6,  yCenter + (yLower-10));
+            sketch.curveVertex(sketch.width*4/6,  yCenter - deltas[2]);
+            sketch.curveVertex(sketch.width*5/6,  yCenter + (yLower-10));
+            sketch.curveVertex(sketch.width, yCenter);
+            sketch.curveVertex(sketch.width, yCenter);
+            sketch.endShape();
+
+
+            sketch.beginShape();
+            sketch.curveVertex(0,  yCenter);
+            sketch.curveVertex(0,  yCenter);
+            sketch.curveVertex(sketch.width*1/6,  yCenter + (yLower-10));
+            sketch.curveVertex(sketch.width*2/6,  yCenter - randomTest);
+            sketch.curveVertex(sketch.width*3/6,  yCenter + (yLower-10));
+            sketch.curveVertex(sketch.width*4/6,  yCenter - deltas[3]);
+            sketch.curveVertex(sketch.width*5/6,  yCenter + (yLower-10));
+            sketch.curveVertex(sketch.width, yCenter);
+            sketch.curveVertex(sketch.width, yCenter);
+            sketch.endShape();
+
+            particles.forEach(function(p, i) {
+              if (p.y > 0 && p.y < sketch.height) {
+                p.y += randomVel[i];
+                if (p.a > 0) {
+                  p.a -= Math.abs( randomVel[i] );
+                }
+                p.draw();
+              }
+            });
+
+            // TODO could reduce array size here to get rid of expired particles
+
+          }
+
+          //// ******* ON SCROLL *********
+          sketch.mouseWheel = function() {
+              randomPos.push( Math.floor( Math.random() * sketch.width ) );;
+              randomVel.push( Math.random() * 2 - 1 );
+              particles.push( new Particle( randomPos[ randomPos.length - 1], yCenter, 255, Math.abs( randomVel[ randomVel.length - 1] ) * 3 ));
+          }
+
+          ///// **** ON WINDOW RESIZE ********
+          sketch.windowResized = function() {
+            sketch.resizeCanvas( $(window).width(), 240 );
+          }
+};
+
+// *** moved this to on load handler
+// const p5_graph = new p5(graphGenerator, "graph");  // args: function for sketch, id of div to attach to
