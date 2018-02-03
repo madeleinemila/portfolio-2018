@@ -1,3 +1,6 @@
+// *** first version, started to integrate data from how many keystrokes i did per day into graph, but then changed it up for simpler particle version
+
+
 // // WRITTEN IN INSTANCE MODE FOR MULTPLE CANVASES ON ONE PAGE
 //
 // const graphGenerator = function(sketch) {
@@ -13,7 +16,7 @@
 //           function mapCenter( value ) {
 //             return sketch.map(  // ** p5 map - map to a new range
 //               value,
-//               0, avgArraySorted[ avgArraySorted.length - 1 ], // original range // TODO get rid of sorted and use max
+//               0, avgArraySorted[ avgArraySorted.length - 1 ], // original range
 //               sketch.height, 20
 //             ); // mapped range, reversed for natural y axis w 0 at bottom, but not all the way to 0 to avoid graphic cut off
 //           }
@@ -22,13 +25,13 @@
 //             if (window.innerWidth >= breakPoint ) {
 //               return sketch.map(
 //                 value,
-//                 0, avgArraySorted[ avgArraySorted.length - 1 ], // original range // TODO
+//                 0, avgArraySorted[ avgArraySorted.length - 1 ], // original range
 //                 0, sketch.height/2
 //               );
 //             } else {
 //               return sketch.map(
 //                 value,
-//                 0, avgArraySorted[ avgArraySorted.length - 1 ], // original range // TODO
+//                 0, avgArraySorted[ avgArraySorted.length - 1 ], // original range
 //                 0, sketch.height/4
 //               );
 //             }
