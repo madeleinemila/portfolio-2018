@@ -49,7 +49,7 @@ const newLineBreakPoint = 800;
 const resizeRotateContainer = function() {
   if (window.innerWidth < newLineBreakPoint) { //  breakpoint for text to new line
     const container = document.getElementById('rotate-container');
-    container.innerHTML = `During a career in film, television and live entertainment tech, I experienced firsthand many technological transitions:<br /><span class="rotate" id="rotateTech">from cables to web GUIs.</span>`;
+    container.innerHTML = `During a career in film, television and live entertainment, I saw firsthand many tech transitions:<br /><span class="rotate" id="rotateTech">from cables to web GUIs.</span>`;
     const $rotateTech = $('#rotateTech');
     fadeLoop( $rotateTech, tech );
   } else {
