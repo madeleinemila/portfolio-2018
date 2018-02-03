@@ -11,12 +11,9 @@ $media-min-width-lge: 320px;
   overflow-y: auto; // enable scroll if needed
   background-color: white; // fallback
   background-color: rgba(255, 228, 228, 0.9);
-  opacity: 1; // CHANGED - used to be 0 to get faded in w js
+  opacity: 1;
   -webkit-filter: none;
   filter: none; // don't blur modals
-  // -webkit-transition: opacity 0.8s ease; CHANGED
-  // -moz-transition: opacity 0.8s ease;
-  // transition: opacity 0.8s ease;
 }
 
 .modal-content {
@@ -47,9 +44,6 @@ $media-min-width-lge: 320px;
     font-style: italic;
     line-height: 1.3rem;
   }
-  // p:last-of-type {
-  //   padding-bottom: 3em;
-  // }
   p:first-of-type {
     padding-top: 0;
   }
@@ -80,6 +74,7 @@ $media-min-width-lge: 320px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .modal-flex-1 {
@@ -93,6 +88,17 @@ $media-min-width-lge: 320px;
 .modal-flex-3 {
   flex: 3;
   padding: 1rem;
+}
+
+.modal-flex-photo {
+  flex: 1;
+  padding: 1rem;
+  padding-top: 0.7rem;
+}
+
+.modal-flex-vimeo {
+  flex: 1;
+  // padding: 1rem;
 }
 
 img.youtube-thumb {
@@ -112,9 +118,15 @@ img.featured {
   display: block;
   max-width: 800px;
   width: 100%;
-  margin: 0 auto 5rem auto;
+  // margin: 0 auto 5rem auto;
+  margin: 1rem auto;
   // border: 1px #d9d2d2 solid;
   box-shadow: 5px 5px 15px #222;
+  min-width: 220px;
+}
+
+img.featured-less-margin {
+  margin-top: 0;
 }
 
 .modal-list {

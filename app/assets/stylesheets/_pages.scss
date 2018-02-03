@@ -323,15 +323,36 @@ img.profile {
   margin: 20px;
   vertical-align: middle;
   cursor: pointer;
+
+  &:hover {
+    .thumb-label {
+        // for highlight effect
+        background-position: -100% 0;
+    }
+  }
+}
+
+.thumb-label-container {
+  display: inline-block;
+  height: 60px;
+  width: 100px;
+  margin-bottom: 0;
 }
 
 .thumb-label {
   font-family: 'Crimson', serif;
   font-style: italic;
   letter-spacing: 0.8px;
-  height: 60px;
-  display: inline-block;
-  margin-bottom: 0;
+  display: inline;
+  // for highlight
+  // background: linear-gradient(to right, rgba(255,255,255,0) 50%, rgba(0, 234, 178, 1.0) 50%);
+  background: linear-gradient(to right, rgba(255,255,255,0) 50%, darken( rgb(255, 228, 228), 10%) 50%);
+  // background: linear-gradient(to right, rgba(255,255,255,0) 50%, #ff76ad 50%);
+  background-size: 200%;
+  background-position: 0 0;
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
 }
 
 .thumb-small {
@@ -382,9 +403,11 @@ iframe {
 
 // LIST nav
 
-.list-link {
-  color: darken( $highlight-green, 10% );
+.list-link > a {
+  // color: darken( $highlight-green, 10% );
   // list-style: none;
+  background-color: $highlight-green;
+  // display: inline;
 }
 
 .list-link:hover {
@@ -398,6 +421,14 @@ iframe {
   background-color: #222;
   height: 7rem;
   cursor: pointer;
+  -webkit-transition: background-color 0.5s ease;
+  -moz-transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease;
+}
+
+#nav-return:hover {
+  background-color: $highlight-green;
+  // color: $highlight-green;
 }
 
 #nav-return > p {

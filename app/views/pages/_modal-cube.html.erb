@@ -1,10 +1,16 @@
 <div class="content">
-   <h1>Rubik's Cube</h1>
-   <p>A 2D interactive Rubik's Cube map built with Processing</p>
-   <p>Created for Production Resource Group (PRG), Las Vegas, for projection mapping on a 3D cube</p>
-   <p>&nbsp;</p>
-   <p>Play and check out the source code on OpenProcessing</p>
-   <p>Test it out unshuffled: <a href="https://www.openprocessing.org/sketch/470700" target="_blank">https://www.openprocessing.org/sketch/470700</a></p>
-   <p>Start shuffled: <a href="https://www.openprocessing.org/sketch/470724" target="_blank">https://www.openprocessing.org/sketch/470724</a></p>
-   <%= image_tag "cube.png", :class => "featured", :alt=> "Rubik's Cube Map" %>
+  <h1>Rubik's Cube</h1>
+  <div class="modal-flex-row">
+    <div class="modal-flex-3">
+       <p>A 2D interactive Rubik's Cube map built with Processing</p>
+       <p>Created for Production Resource Group (PRG), Las Vegas, for projection mapping on a 3D cube</p>
+       <br />
+       <p>Play and check out the source code on OpenProcessing</p>
+       <p>Test it out unshuffled: <a href="https://www.openprocessing.org/sketch/470700" target="_blank">https://www.openprocessing.org/sketch/470700</a></p>
+       <p>Start shuffled: <a href="https://www.openprocessing.org/sketch/470724" target="_blank">https://www.openprocessing.org/sketch/470724</a></p>
+    </div>
+    <div class="modal-flex-2">
+       <%= link_to (image_tag "cube.png", :class => "featured", :alt=> "Rubik's Cube Map"), "https://www.openprocessing.org/sketch/470724", :target => "_blank" %>
+    </div>
+   </div>
 </div>

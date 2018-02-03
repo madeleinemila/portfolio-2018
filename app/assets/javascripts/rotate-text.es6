@@ -1,11 +1,6 @@
-// // *** 'from' text options
-// const from = ['film', 'tape', 'hardware'];
-//
-// // ** 'to' text options - keep same length as 'from' // TODO put in one 2d array then?
-// const to = ['web delivery', 'web app', 'DMX over IP'];
 
-const tech = ['from film to streaming.', 'from hardware to web apps.', 'from videotape to data.', 'from proprietary protocols to IP.', 'from cables to web GUIs.'];
-let timer1, timer2, timer3, timer4;
+const tech = ['from film to streaming.', 'from videotape to data.', 'from proprietary protocols to IP.', 'from cables to web GUIs.'];
+let timer1, timer2, timer3, timer4; // to clearTimeouts later
 
 // counter to rotate through options
 let counter = 1;
@@ -50,8 +45,6 @@ const fadeLoop = function( $elem, a ) {
 
 
 // $(window).load(function() { // moved after document.ready so resize could happen before rotate
-
   // const $rotateTech = $('#rotateTech');
   // fadeLoop( $rotateTech, tech );
-
 // });
