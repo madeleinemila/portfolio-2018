@@ -1,6 +1,6 @@
 <div class="content">
    <h1>Triage</h1>
-    <div class="modal-flex-row">
+   <div class="modal-flex-row">
       <div class="modal-flex-2">
        <p>Deployed on Heroku:<br /><a href="https://triage.herokuapp.com" target="_blank">triage.herokuapp.com</a></p>
        <p>Source code:<br /><a href="https://github.com/madeleinemila/triage-app" target="_blank">github.com/madeleinemila/triage-app</a></p>
@@ -16,23 +16,23 @@
        </p>
      </div>
      <div class="modal-flex-3">
-        <%= image_tag "triage-home-new.jpg", :class => "featured", :alt=> "Screenshot of public homepage" %>
+        <%= link_to (image_tag "triage-home-new.jpg", :class => "featured", :alt=> "Screenshot of public homepage"), "https://triage.herokuapp.com", :target => "_blank" %>
      </div>
    </div>
 
 
    <p>Created for General Assembly's Web Development Immersive, week 6 solo assignment</p>
    <p>I loved figuring out: search functionality, favouriting methods</p>
-   <div class="modal-flex-row">
-     <div class="modal-flex-1">
-       <%= image_tag "triage_home.jpg", :class => "featured", :alt=> "Screenshot of public homepage" %>
-     </div>
-     <div class="modal-flex-1">
-       <%= image_tag "triage_typo.jpg", :class => "featured", :alt=> "Screenshot of search finding a misspelt word" %>
-     </div>
-    </div>
-     <%= image_tag "triage_signup.jpg", :class => "featured modal-flex-1", :alt=> "Screenshot of signup page" %>
-     <%= image_tag "triage_pins.jpg", :class => "featured modal-flex-1", :alt=> "Screenshot of user homepage" %>
-     <%= image_tag "triage_off_and_on.jpg", :class => "featured modal-flex-1", :alt=> "Screenshot of fix example" %>
-
+   <div class="modal-flex-row flex-no-wrap">
+       <div class="modal-flex-1">
+         <%= image_tag "triage-qantel-new.jpg", :class => "featured click-to-enlarge", :alt=> "Search works for misspelt word" %>
+       </div>
+       <div class="modal-flex-1">
+         <%= image_tag "triage-signup-new.jpg", :class => "featured click-to-enlarge", :alt=> "Signup page" %>
+       </div>
+       <div class="modal-flex-1">
+         <%= image_tag "triage-pins-new.jpg", :class => "featured click-to-enlarge", :alt=> "User pins example" %>
+       </div>
+   </div>
+   <img id="enlarged-img" />
 </div>

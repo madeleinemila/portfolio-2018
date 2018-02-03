@@ -90,13 +90,9 @@ h2 {
 
 a.home-nav {
   display: block;
-  // height: 100px;
   line-height: 22px;
   width: 100px;
   margin: 0 auto;
-  // margin-top: $nav-margin;
-  // border-radius: 50%;
-  // border: 2px white solid;
   background-color: rgba(0, 0, 0, 0);
   color: white;
   text-decoration: none;
@@ -201,14 +197,7 @@ ul {
       letter-spacing: 1px;
       font-size: 1.7rem;
       text-align: center;
-      // text-align: left;
       color: #222;
-    }
-    // p.feature-text::first-line {
-    p.feature-text {
-      // padding-left: 1.5rem;
-      // padding-right: 1.5rem;
-      // background-color: rgba(0, 135, 255, 0.5);
     }
     p.feature-text .highlight {
       // background-color: rgba(0, 135, 255, 0.5);
@@ -218,7 +207,6 @@ ul {
     .subfeature-text {
       font-size: 1.2rem;
       letter-spacing: 1px;
-      // text-align: justify;
     }
   }
 }
@@ -270,21 +258,15 @@ img.profile {
 }
 
 
-
 .long-dash {
   letter-spacing: 0.3px;
 }
 
 
-.nav-block {
-  // height: 200px;
-}
-
 // **** rotate text *******
 
 .rotate {
   display: inline-block;
-  // width: 200px;
   -webkit-transition: opacity 0.8s;
   -moz-transition: opacity 0.8s;
   transition: opacity 0.8s;
@@ -294,9 +276,6 @@ img.profile {
   opacity: 0;
 }
 
-// #rotate-container {
-//
-// }
 
 //////////// WORK ///////////////////
 
@@ -304,17 +283,16 @@ img.profile {
   @extend #about-container;
   background-color: #eee;
   h3.overlap {
-    // top: 24px;
     background-color: #eee;
   }
   .border-work {
-    // height: 200px;
     position: relative;
   }
 }
 
 .thumbs-container {
   margin: 3em 2em;
+  text-align: center;
 }
 
 .thumb {
@@ -347,7 +325,6 @@ img.profile {
   // for highlight
   // background: linear-gradient(to right, rgba(255,255,255,0) 50%, rgba(0, 234, 178, 1.0) 50%);
   background: linear-gradient(to right, rgba(255,255,255,0) 50%, darken( rgb(255, 228, 228), 10%) 50%);
-  // background: linear-gradient(to right, rgba(255,255,255,0) 50%, #ff76ad 50%);
   background-size: 200%;
   background-position: 0 0;
   -webkit-transition: 0.5s ease-in-out;
@@ -372,11 +349,6 @@ img.profile {
   margin-top: 0;
 }
 
-/////////// GRAPH //////////////
-
-#graph {
-  // padding-bottom: 2rem;
-}
 
 ///////// VIDEO ///////////
 
@@ -386,10 +358,6 @@ img.profile {
   min-width: 320px;
 }
 
-iframe {
-  // display: block;
-  // margin: 0 auto;
-}
 
 .livestream {
   margin: 0 auto;
@@ -404,10 +372,7 @@ iframe {
 // LIST nav
 
 .list-link > a {
-  // color: darken( $highlight-green, 10% );
-  // list-style: none;
   background-color: $highlight-green;
-  // display: inline;
 }
 
 .list-link:hover {
@@ -428,7 +393,6 @@ iframe {
 
 #nav-return:hover {
   background-color: $highlight-green;
-  // color: $highlight-green;
 }
 
 #nav-return > p {

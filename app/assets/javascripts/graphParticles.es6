@@ -3,26 +3,17 @@ let smoothScrolling = false; // to detect smooth scroll jquery
 // WRITTEN IN INSTANCE MODE FOR MULTPLE CANVASES ON ONE WEBPAGE
 
 const graphGenerator = function(sketch) {
-          // let avgArray, avgRecent;
-          // let avgArray, avgArraySorted, avgRecent, avgAll;
-          // let yCenter, yLower, randomTest;
 
-
-          let yLower, randomTest;
-          let yCenter;
+          let yLower, yCenter;
           const center = 6077;
           const points = [2091, 3522, 10962, 18240]; // original values from keystroke experiments, kept for graph aesthetics
           let deltas = [72, 23, 14, 120];
           const deltasSmall = [36, 11, 7, 60];
           const breakPoint = 800;
-          let count = 0;
+          // let count = 0;
+          let seed;
+          let particles = new Array(40);
 
-
-
-          // const numParticles = 30;
-          let particles = new Array(30);
-          // const randomPos = new Array( numParticles );
-          // const randomVel = new Array( numParticles );
 
 
           // ******* Helper Functions ****************************************************
@@ -70,11 +61,7 @@ const graphGenerator = function(sketch) {
           // reset graph styling
           function graphInit() {
             sketch.noFill();
-            // if (window.innerWidth >= 450 ) { // picked 450 as a breakpoint
-              sketch.stroke(255, 120);
-            // } else {
-              // sketch.stroke(255, 0); // cheating making graph disappear for smaller screens
-            // }
+            sketch.stroke(255, 120);
             sketch.strokeWeight(1);
           }
 
@@ -96,19 +83,8 @@ const graphGenerator = function(sketch) {
             // **** init display settings ***********
             graphInit();
 
-
-            // avgArray = [10962, 3522, 2091, 18240];
-            // avgArraySorted = avgArray.slice().sort((a, b) => a - b ); // sort numerically
-            // avgRecent = avgArray[ avgArray.length - 1 ];
-            // avgAll =  6077.478743727049; // CHANGED manually setting values before live keystroke data is implemented
             yCenter = mapCenter( center );
             yLower = sketch.height - yCenter;
-
-            // CONVERT VALUES INTO DELTAS
-            // points.forEach((a) => {
-            //   const v = mapGraph( a );
-            //   deltas.push( v );
-            // });
 
             // populate particles arrays
             for (let i = 0; i < particles.length; i++) {
@@ -117,7 +93,7 @@ const graphGenerator = function(sketch) {
               particles[i] = new Particle( pos, yCenter, 255, Math.abs( vel ) * 3, vel);  // using velocity to generate size; further away = tinier = slower, like real distance. idea: could do inverse, like bokeh
             }
 
-            randomTest = 10.5; // CHANGED - manually setting this value until more work can be done on interactive graph
+            seed = 10.5;
           }
 
 
@@ -164,7 +140,7 @@ const graphGenerator = function(sketch) {
                 sketch.curveVertex(0,  yCenter);
                 sketch.curveVertex(0,  yCenter);
                 sketch.curveVertex(sketch.width*1/6,  yCenter + (yLower-10));
-                sketch.curveVertex(sketch.width*2/6,  yCenter - randomTest);
+                sketch.curveVertex(sketch.width*2/6,  yCenter - seed);
                 sketch.curveVertex(sketch.width*3/6,  yCenter + (yLower-10));
                 sketch.curveVertex(sketch.width*4/6,  yCenter - deltas[2]);
                 sketch.curveVertex(sketch.width*5/6,  yCenter + (yLower-10));
@@ -177,7 +153,7 @@ const graphGenerator = function(sketch) {
                 sketch.curveVertex(0,  yCenter);
                 sketch.curveVertex(0,  yCenter);
                 sketch.curveVertex(sketch.width*1/6,  yCenter + (yLower-10));
-                sketch.curveVertex(sketch.width*2/6,  yCenter - randomTest);
+                sketch.curveVertex(sketch.width*2/6,  yCenter - seed);
                 sketch.curveVertex(sketch.width*3/6,  yCenter + (yLower-10));
                 sketch.curveVertex(sketch.width*4/6,  yCenter - deltas[3]);
                 sketch.curveVertex(sketch.width*5/6,  yCenter + (yLower-10));

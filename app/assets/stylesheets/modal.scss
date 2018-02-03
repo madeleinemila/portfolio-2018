@@ -13,7 +13,7 @@ $media-min-width-lge: 320px;
   background-color: rgba(255, 228, 228, 0.9);
   opacity: 1;
   -webkit-filter: none;
-  filter: none; // don't blur modals
+  filter: none; // don't blur modals when using blur transitions
 }
 
 .modal-content {
@@ -98,29 +98,30 @@ $media-min-width-lge: 320px;
 
 .modal-flex-vimeo {
   flex: 1;
-  // padding: 1rem;
 }
 
-img.youtube-thumb {
-  width: 100%;
-  cursor: pointer;
-  min-width: $media-min-width-lge; // to stop it getting tiny on smaller screens
-  box-shadow: 5px 5px 15px #222;
+.flex-no-wrap {
+  flex-wrap: nowrap;
 }
 
-iframe {
-  cursor: pointer;
-  min-height: 360px;
-  min-width: $media-min-width-lge;
-}
+// img.youtube-thumb {
+//   width: 100%;
+//   cursor: pointer;
+//   min-width: $media-min-width-lge; // to stop it getting tiny on smaller screens
+//   box-shadow: 5px 5px 15px #222;
+// }
+//
+// iframe {
+//   cursor: pointer;
+//   min-height: 360px;
+//   min-width: $media-min-width-lge;
+// }
 
 img.featured {
   display: block;
   max-width: 800px;
   width: 100%;
-  // margin: 0 auto 5rem auto;
   margin: 1rem auto;
-  // border: 1px #d9d2d2 solid;
   box-shadow: 5px 5px 15px #222;
   min-width: 220px;
 }
@@ -131,7 +132,16 @@ img.featured-less-margin {
 
 .modal-list {
   @extend p;
-  // font-weight: bold;
+}
+
+.click-to-enlarge {
+  cursor: pointer;
+  min-width: 50px !important;
+}
+
+#enlarged-img {
+  width: 100%;
+  padding: 1rem;
 }
 
 // TRANSITION ANIMATION
@@ -139,7 +149,6 @@ img.featured-less-margin {
 #anim {
   z-index: 40;
   display: none;
-  // opacity: 0;
   width: 400px;
   height: 400px;
   position: fixed;
@@ -150,5 +159,4 @@ img.featured-less-margin {
   -moz-transition: all 1s ease;
   transition: all 1s ease;
   z-index: 20;
-  // border: 5px white solid;
 }

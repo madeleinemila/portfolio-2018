@@ -27,7 +27,7 @@ $(document).ready(function() {
 
 
 
-// smooth scroll eg
+// smooth scroll
 
 const smoothScroll = function( y ) {
   $('html, body').animate( { scrollTop: y }, 500);
@@ -36,18 +36,3 @@ const smoothScroll = function( y ) {
 const smoothScrollTarget = function( target ) {
    $('html, body').animate( { scrollTop: target.offset().top }, 500);
 };
-
-
-//
-
-// function smoothScrollingTo(target){
-//   $('html,body').animate({scrollTop:$(target).offset().‌​top}, 500);
-// }
-//
-// $('a[href*=\\#]').on('click', function(event){
-//     event.preventDefault();
-//     smoothScrollingTo(this.hash);
-// });
-// $(document).ready(function(){
-//   smoothScrollingTo(location.hash);
-// });

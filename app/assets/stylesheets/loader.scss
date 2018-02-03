@@ -1,6 +1,5 @@
 #preloader {
   display: block;
-  // display: none;
   width: 100vw;
   height: 100vh;
   z-index: 9999;
@@ -11,15 +10,10 @@
 
   .load-graphic1 {
     position: fixed;
-    top: calc(50% - 25px);
-    left: calc(50% - 25px);
-    // -webkit-transform: translateX(-50%);
-    // transform: translateX(-50%);
-    // -webkit-transform: translateY(-50%);
-    // transform: translateY(-50%);
-    width: 50px;
-    height: 50px;
-    // border-left: 1px rgba(255, 255, 255, 0.5) solid;
+    top: calc(50% - 8px);
+    left: calc(50% - 8px);
+    width: 16px;
+    height: 16px;
     border-top: 1px rgba(0, 255, 208, 0.5) solid;
     -webkit-animation: move 2s ease-in-out infinite;
     animation: move 2s ease-in-out infinite;
@@ -38,42 +32,23 @@
   }
 }
 
-// ********* vert lines
-// @-webkit-keyframes move {
-//   50% {
-//     transform: translateX(4rem);
-//   }
-//   100% {
-//     transform: translateX(-50%);
-//   }
-// }
-//
-// @keyframes move {
-//   50% {
-//     transform: translateX(4rem);
-//   }
-//   100% {
-//     transform: translateX(-50%);
-//   }
-// }
-
 
 
 // ********** horiz lines
 @-webkit-keyframes move {
   50% {
-    top: calc(50% - 25px + 4rem);
+    top: calc(50% - 8px + 4rem);
   }
   100% {
-    top: calc(50% - 25px);
+    top: calc(50% - 8px);
   }
 }
 
 @keyframes move {
   50% {
-    top: calc(50% - 25px + 4rem);
+    top: calc(50% - 8px + 4rem);
   }
   100% {
-    top: calc(50% - 25px);
+    top: calc(50% - 8px);
   }
 }

@@ -1,21 +1,39 @@
 <div class="content">
    <h1>Gehms</h1>
-   <p>Deployed on Heroku:<br /><a href="https://gehms.herokuapp.com/" target="_blank">gehms.herokuapp.com</a></p>
-   <p>Source code:<br /><a href="https://github.com/madeleinemila/retro-gaming" target="_blank">github.com/madeleinemila/retro-gaming</a></p>
-   <br />
-   <p>A JavaScript + Ruby on Rails retro games platform</p>
-   <p>Featuring Arduino hardware controllers & Node.js</p>
-   <p>Created for General Assembly's Web Development Immersive, week 9 group assignment</p>
-   <br />
-   <p>My role: creating hardware controllers and building their interaction with the browser and Phaser games</p>
-   <p>I loved figuring out: websockets, Node, low latency communication between hardware and the browser</p>
+     <div class="modal-flex-row">
+       <div class="modal-flex-2">
+         <p>Deployed on Heroku:<br /><a href="https://gehms.herokuapp.com/" target="_blank">gehms.herokuapp.com</a></p>
+         <p>Source code:<br /><a href="https://github.com/madeleinemila/retro-gaming" target="_blank">github.com/madeleinemila/retro-gaming</a></p>
+         <br />
+         <p>Three in-browser retro games with real-time hardware controllers</p>
+         <p>Built with:
+          <ul class="modal-list">
+            <li>JavaScript, Phaser & Ruby on Rails for the games</li>
+            <li>Arduino and Node.js for the controllers</li>
+          </ul>
+         </p>
+
+       </div>
+       <div class="modal-flex-3">
+         <video controls class="video-lge" muted loop>
+             <source src="https://res.cloudinary.com/mrmy/video/upload/v1517415920/controller-video_s5hpm0.mov">
+         </video>
+       </div>
+     </div>
+
+    <p>Created for General Assembly's Web Development Immersive, week 9 group assignment</p>
+    <br />
+    <p>My role: creating hardware controllers and building their interaction with the browser and Phaser games</p>
+    <p>I loved figuring out: websockets, Node, low latency communication between hardware and the browser</p>
+
+     <div class="modal-flex-row">
+      <div class="modal-flex-1">
+         <%= image_tag "controllers01.jpg", :class => "featured", :alt=> "Controller work in progress" %>
+      </div>
+      <div class="modal-flex-1">
+         <%= image_tag "controllers03.jpg", :class => "featured", :alt=> "Controllers side on" %>
+      </div>
+     </div>
+      <%= link_to (image_tag "gehms-home.jpg", :class => "featured", :alt=> "Screenshot of homepage"), "https://gehms.herokuapp.com/" %>
+      <%= link_to (image_tag "gehms-combined.jpg", :class => "featured", :alt=> "Screenshot of Roids + Ping"), "https://gehms.herokuapp.com/" %>
 </div>
-
-<video controls class="video-lge" muted loop>
-    <source src="https://res.cloudinary.com/mrmy/video/upload/v1517415920/controller-video_s5hpm0.mov">
-</video>
-
-<%= image_tag "controllers01.jpg", :class => "featured", :alt=> "Controller work in progress" %>
-<%= image_tag "controllers03.jpg", :class => "featured", :alt=> "Controllers side on" %>
-<%= image_tag "gehms-home.jpg", :class => "featured", :alt=> "Screenshot of homepage" %>
-<%= image_tag "gehms-combined.jpg", :class => "featured", :alt=> "Screenshot of Roids + Ping" %>

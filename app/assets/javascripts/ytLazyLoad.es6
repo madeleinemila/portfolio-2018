@@ -30,8 +30,3 @@ function loadIframe() {
   iframe.setAttribute("height", "100%"); // added
   this.parentNode.replaceChild(iframe, this);
   }
-
-
-
-//      <iframe width="560" height="315" src="https://www.youtube.com/embed/t8pxUcoJPww?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
-// iframe.setAttribute("src", "youtube.com/embed/" + youtube.id + "?modestbranding=1&;showinfo=0&;autohide=1&;rel=0;");

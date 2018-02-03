@@ -1,9 +1,13 @@
 let modalId;
 
+
+// n.b. commented out blur effect as too heavy
+
 $(document).ready(function() {
   // open modal
   $('.thumb').on('click', function(e) {
     modalId = e.target.id.split('-')[1];  // get id after dash
+    $(`#modal-${ modalId }`).scrollTop(0); // reset scroll to top
     $(`#modal-bg`).css("display", "block"); // show modal bg
     $('#anim').css("display", "block"); // show transition anim
     $('body').addClass('modal-open'); // disabling scroll behind

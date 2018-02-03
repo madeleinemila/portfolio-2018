@@ -5,24 +5,13 @@ let drawRect = false;
 // WRITTEN IN INSTANCE MODE
 
 const transition = function(sketch) {
-        // const rectWidth = 100;
-        // const rectHeight = 100;
-        // int border = 3;
 
-        // drawing vars
-        // int lineStart = 150;
         let v = 0;
-
-
-
-
-
 
         // ********** SETUP ***************************
 
         sketch.setup = function() {
           const anim = sketch.createCanvas(400, 400);
-          // anim.parent("anim");
 
           sketch.background(255, 228, 228, 0);
           sketch.strokeWeight(5);
@@ -31,12 +20,6 @@ const transition = function(sketch) {
           sketch.frameRate(30);
           sketch.rectMode("CENTER");
         }
-
-
-
-
-
-
 
 
         // ********* DRAW ******************************
@@ -52,10 +35,6 @@ const transition = function(sketch) {
             v = 0;
           }
         }
-
-
-
-
 
 
 
