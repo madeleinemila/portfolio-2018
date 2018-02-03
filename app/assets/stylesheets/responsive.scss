@@ -1,24 +1,36 @@
 
 
 ////////// RESPONSIVE ///////////
+@media only screen and (max-width: 1200px) {
+  .modal-content {
+    width: 90% !important;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .close-lower {
+    visibility: visible;
+  }
+}
 
 
 @media only screen and (max-width: 640px) {
+  .modal-content {
+    width: 100% !important;
+    h1 {
+      margin-bottom: 1.75rem !important;
+    }
+  }
+
   .home-byline {
     font-size: 0.9rem;
     padding: 0 1rem;
     line-height: 2rem;
   }
 
-  .modal-content {
-    width: 100% !important;
-    h1 {
-      margin-bottom: 1.5rem;
-    }
-  }
-
   iframe {
     width: 100%;
+    min-height: 220px;
   }
 
   .featured {
@@ -48,14 +60,22 @@
   .subfeature-text {
     font-size: 1rem !important;
   }
-
-  .close-lower {
-    visibility: visible;
-  }
 }
 
 @media only screen and (max-width: 374px) {
   .subfeature-text {
     font-size: 0.9rem !important;
+  }
+
+  iframe {
+    width: 100%;
+    min-width: 220px;
+    min-height: 120px;
+  }
+  .video-lge {
+    min-width: 220px;
+  }
+  img.youtube-thumb {
+    min-width: 220px;
   }
 }

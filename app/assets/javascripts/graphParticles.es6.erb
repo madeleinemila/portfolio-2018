@@ -70,11 +70,11 @@ const graphGenerator = function(sketch) {
           // reset graph styling
           function graphInit() {
             sketch.noFill();
-            if (window.innerWidth >= 450 ) { // picked 450 as a breakpoint
+            // if (window.innerWidth >= 450 ) { // picked 450 as a breakpoint
               sketch.stroke(255, 120);
-            } else {
-              sketch.stroke(255, 0); // cheating making graph disappear for smaller screens
-            }
+            // } else {
+              // sketch.stroke(255, 0); // cheating making graph disappear for smaller screens
+            // }
             sketch.strokeWeight(1);
           }
 
@@ -132,58 +132,59 @@ const graphGenerator = function(sketch) {
           sketch.draw = function() {
             sketch.clear();
 
+            if ( window.innerHeight > 760) {  // only draw graph on larger screen sizes
+                // GRAPHING
+                graphInit();
 
-            // GRAPHING
-            graphInit();
+                sketch.line( 0, yCenter, sketch.width, yCenter );
 
-            sketch.line( 0, yCenter, sketch.width, yCenter );
+                sketch.beginShape();
+                sketch.curveVertex(0,  yCenter);
+                sketch.curveVertex(0,  yCenter);
+                sketch.curveVertex(sketch.width*1/4,  yCenter + deltas[0]);
+                sketch.curveVertex(sketch.width*2/4,  yCenter - deltas[0]);
+                sketch.curveVertex(sketch.width*3/4,  yCenter + deltas[0]);
+                sketch.curveVertex(sketch.width, yCenter);
+                sketch.curveVertex(sketch.width, yCenter);
+                sketch.endShape();
 
-            sketch.beginShape();
-            sketch.curveVertex(0,  yCenter);
-            sketch.curveVertex(0,  yCenter);
-            sketch.curveVertex(sketch.width*1/4,  yCenter + deltas[0]);
-            sketch.curveVertex(sketch.width*2/4,  yCenter - deltas[0]);
-            sketch.curveVertex(sketch.width*3/4,  yCenter + deltas[0]);
-            sketch.curveVertex(sketch.width, yCenter);
-            sketch.curveVertex(sketch.width, yCenter);
-            sketch.endShape();
-
-            sketch.beginShape();
-            sketch.curveVertex(0,  yCenter);
-            sketch.curveVertex(0,  yCenter);
-            sketch.curveVertex(sketch.width*1/5,  yCenter + deltas[1]);
-            sketch.curveVertex(sketch.width*2/5,  yCenter - deltas[1]);
-            sketch.curveVertex(sketch.width*3/5,  yCenter + deltas[1]);
-            sketch.curveVertex(sketch.width*4/5,  yCenter + deltas[1]);
-            sketch.curveVertex(sketch.width, yCenter);
-            sketch.curveVertex(sketch.width, yCenter);
-            sketch.endShape();
-
-
-            sketch.beginShape();
-            sketch.curveVertex(0,  yCenter);
-            sketch.curveVertex(0,  yCenter);
-            sketch.curveVertex(sketch.width*1/6,  yCenter + (yLower-10));
-            sketch.curveVertex(sketch.width*2/6,  yCenter - randomTest);
-            sketch.curveVertex(sketch.width*3/6,  yCenter + (yLower-10));
-            sketch.curveVertex(sketch.width*4/6,  yCenter - deltas[2]);
-            sketch.curveVertex(sketch.width*5/6,  yCenter + (yLower-10));
-            sketch.curveVertex(sketch.width, yCenter);
-            sketch.curveVertex(sketch.width, yCenter);
-            sketch.endShape();
+                sketch.beginShape();
+                sketch.curveVertex(0,  yCenter);
+                sketch.curveVertex(0,  yCenter);
+                sketch.curveVertex(sketch.width*1/5,  yCenter + deltas[1]);
+                sketch.curveVertex(sketch.width*2/5,  yCenter - deltas[1]);
+                sketch.curveVertex(sketch.width*3/5,  yCenter + deltas[1]);
+                sketch.curveVertex(sketch.width*4/5,  yCenter + deltas[1]);
+                sketch.curveVertex(sketch.width, yCenter);
+                sketch.curveVertex(sketch.width, yCenter);
+                sketch.endShape();
 
 
-            sketch.beginShape();
-            sketch.curveVertex(0,  yCenter);
-            sketch.curveVertex(0,  yCenter);
-            sketch.curveVertex(sketch.width*1/6,  yCenter + (yLower-10));
-            sketch.curveVertex(sketch.width*2/6,  yCenter - randomTest);
-            sketch.curveVertex(sketch.width*3/6,  yCenter + (yLower-10));
-            sketch.curveVertex(sketch.width*4/6,  yCenter - deltas[3]);
-            sketch.curveVertex(sketch.width*5/6,  yCenter + (yLower-10));
-            sketch.curveVertex(sketch.width, yCenter);
-            sketch.curveVertex(sketch.width, yCenter);
-            sketch.endShape();
+                sketch.beginShape();
+                sketch.curveVertex(0,  yCenter);
+                sketch.curveVertex(0,  yCenter);
+                sketch.curveVertex(sketch.width*1/6,  yCenter + (yLower-10));
+                sketch.curveVertex(sketch.width*2/6,  yCenter - randomTest);
+                sketch.curveVertex(sketch.width*3/6,  yCenter + (yLower-10));
+                sketch.curveVertex(sketch.width*4/6,  yCenter - deltas[2]);
+                sketch.curveVertex(sketch.width*5/6,  yCenter + (yLower-10));
+                sketch.curveVertex(sketch.width, yCenter);
+                sketch.curveVertex(sketch.width, yCenter);
+                sketch.endShape();
+
+
+                sketch.beginShape();
+                sketch.curveVertex(0,  yCenter);
+                sketch.curveVertex(0,  yCenter);
+                sketch.curveVertex(sketch.width*1/6,  yCenter + (yLower-10));
+                sketch.curveVertex(sketch.width*2/6,  yCenter - randomTest);
+                sketch.curveVertex(sketch.width*3/6,  yCenter + (yLower-10));
+                sketch.curveVertex(sketch.width*4/6,  yCenter - deltas[3]);
+                sketch.curveVertex(sketch.width*5/6,  yCenter + (yLower-10));
+                sketch.curveVertex(sketch.width, yCenter);
+                sketch.curveVertex(sketch.width, yCenter);
+                sketch.endShape();
+            }
 
             particles.forEach(function(p, i) {
               if (p.y > 0 && p.y < sketch.height) {

@@ -1,3 +1,5 @@
+$media-min-width-lge: 320px;
+
 #modal-bg {
   display: none; // gets shown by js
   position: fixed;
@@ -48,6 +50,9 @@
   // p:last-of-type {
   //   padding-bottom: 3em;
   // }
+  p:first-of-type {
+    padding-top: 0;
+  }
 }
 
 .close {
@@ -93,12 +98,14 @@
 img.youtube-thumb {
   width: 100%;
   cursor: pointer;
-  min-width: 225px; // to stop it getting tiny on mobile
+  min-width: $media-min-width-lge; // to stop it getting tiny on smaller screens
+  box-shadow: 5px 5px 15px #222;
 }
 
 iframe {
   cursor: pointer;
   min-height: 360px;
+  min-width: $media-min-width-lge;
 }
 
 img.featured {
@@ -112,7 +119,7 @@ img.featured {
 
 .modal-list {
   @extend p;
-  font-weight: bold;
+  // font-weight: bold;
 }
 
 // TRANSITION ANIMATION
