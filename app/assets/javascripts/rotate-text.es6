@@ -30,11 +30,19 @@ const fadeIn = function(elem) {
 
 // ** MAIN FADE LOOP **
 const fadeLoop = function( $elem, a ) {
-  timer1 = setTimeout(() => { fadeOut( $elem ) }, 1000 );
-  timer2 = setTimeout(() => { changeText( $elem, a ) }, 1800 );
-  timer3 = setTimeout(() => { fadeIn( $elem ) }, 1800 );
-  timer4 = setTimeout(() => { fadeLoop( $elem, a ) }, 3000);
+  timer1 = setTimeout(() => { fadeOut( $elem ) }, 400 );
+  timer2 = setTimeout(() => { changeText( $elem, a ) }, 1300 );
+  timer3 = setTimeout(() => { fadeIn( $elem ) }, 1300 );
+  timer4 = setTimeout(() => { fadeLoop( $elem, a ) }, 2110);
 };
+
+// quick loop
+// const fadeLoop = function( $elem, a ) {
+//   timer1 = setTimeout(() => { fadeOut( $elem ) }, 750 );
+//   timer2 = setTimeout(() => { changeText( $elem, a ) }, 1300 );
+//   timer3 = setTimeout(() => { fadeIn( $elem ) }, 1300 );
+//   timer4 = setTimeout(() => { fadeLoop( $elem, a ) }, 2000);
+// };
 
 
 

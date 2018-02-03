@@ -54,7 +54,7 @@ const resizeRotateContainer = function() {
     fadeLoop( $rotateTech, tech );
   } else {
     const container = document.getElementById('rotate-container');
-    container.innerHTML = `During a career in film, television and live entertainment tech, I experienced firsthand many technological transitions: <span class="rotate" id="rotateTech">from cables to web GUIs.</span>`;
+    container.innerHTML = `During a career in film, television and live entertainment, I saw firsthand many tech transitions: <span class="rotate" id="rotateTech">from cables to web GUIs.</span>`;
     const $rotateTech = $('#rotateTech');
     fadeLoop( $rotateTech, tech );
   }

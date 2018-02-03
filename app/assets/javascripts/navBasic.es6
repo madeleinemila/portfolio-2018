@@ -18,6 +18,10 @@ $(document).ready(function() {
      smoothScrollTarget( $('#home') );
   });
 
+  $('#skills-to-work').on('click', function() {
+     smoothScrollTarget( $('#work') );
+  });
+
 });
 
 

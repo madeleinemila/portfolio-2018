@@ -17,6 +17,7 @@ $nav-margin: 40px;
 $old-border-padding: 30px;
 $brown: rgba(102, 81, 80, 1.00);
 $off-white: #eee;
+$highlight-green: rgba(0, 234, 178, 1.00);
 
 ///////////////////////
 //       CSS         //
@@ -284,9 +285,9 @@ img.profile {
 .rotate {
   display: inline-block;
   // width: 200px;
-  -webkit-transition: opacity 0.7s;
-  -moz-transition: opacity 0.7s;
-  transition: opacity 0.7s;
+  -webkit-transition: opacity 0.8s;
+  -moz-transition: opacity 0.8s;
+  transition: opacity 0.8s;
 }
 
 .no-opacity {
@@ -377,6 +378,18 @@ iframe {
 .vimeo {
   @extend .livestream;
   max-width: 640px;
+}
+
+// LIST nav
+
+.list-link {
+  color: darken( $highlight-green, 10% );
+  // list-style: none;
+}
+
+.list-link:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 /// BOTTOM nav
