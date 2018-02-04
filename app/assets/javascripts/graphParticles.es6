@@ -198,14 +198,14 @@ const graphGenerator = function(sketch) {
             }
           }
 
-          ///// ****** ON SHAKE **********
-          // sketch.deviceShaken = function() {
-          //   for (let i = 0; i < 10; i++) {
-          //     if (particles.length < 60) {
-          //       makeParticle();
-          //     }
-          //   }
-          // };
+          /// ****** ON SHAKE **********
+          sketch.deviceShaken = function() {
+            for (let i = 0; i < 10; i++) {
+              if (particles.length < 70) {
+                makeParticle();
+              }
+            }
+          };
 
           ///// ****** ON SHAKE **********
           sketch.deviceMoved = function() {
