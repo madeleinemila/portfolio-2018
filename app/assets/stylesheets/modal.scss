@@ -104,6 +104,10 @@ $media-min-width-lge: 320px;
   flex-wrap: nowrap;
 }
 
+.reverse-wrap {
+  flex-wrap: wrap-reverse;
+}
+
 img.featured {
   display: block;
   max-width: 800px;
