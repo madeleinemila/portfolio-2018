@@ -18,12 +18,12 @@
       </div>
     </div>
      <div class="modal-flex-row">
-       <div class="modal-flex-photo">
+       <div class="modal-flex-1">
          <%= image_tag "dichroic.jpg", :class => "featured featured-less-margin", :alt=> "MCA Image" %>
        </div>
-       <div class="modal-flex-vimeo vimeo">
-         <div class="vimeo-player" data-id="92922101" data-thumbid="472817464"></div>
-         <!-- <iframe src="https://player.vimeo.com/video/92922101" width="600" height="338" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> -->
+       <div class="modal-flex-1">
+         <%= link_to (image_tag "http://i.vimeocdn.com/video/472817464.png", :class => "featured featured-less-margin", :alt => "Link to interview video" ), "https://player.vimeo.com/video/92922101", :target => "_blank" %>
+         <p class="caption">'Dichroic Dimensions' making-of video</p>
        </div>
      </div>
 </div>
