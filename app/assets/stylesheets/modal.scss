@@ -104,24 +104,12 @@ $media-min-width-lge: 320px;
   flex-wrap: nowrap;
 }
 
-// img.youtube-thumb {
-//   width: 100%;
-//   cursor: pointer;
-//   min-width: $media-min-width-lge; // to stop it getting tiny on smaller screens
-//   box-shadow: 5px 5px 15px #222;
-// }
-//
-// iframe {
-//   cursor: pointer;
-//   min-height: 360px;
-//   min-width: $media-min-width-lge;
-// }
-
 img.featured {
   display: block;
   max-width: 800px;
   width: 100%;
   margin: 1rem auto;
+  -webkit-box-shadow: 5px 5px 15px #222;
   box-shadow: 5px 5px 15px #222;
   min-width: 220px;
 }
@@ -142,6 +130,9 @@ img.featured-less-margin {
 #enlarged-img {
   width: 100%;
   padding: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+  display: block;
 }
 
 // TRANSITION ANIMATION
