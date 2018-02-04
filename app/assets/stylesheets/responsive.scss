@@ -70,6 +70,12 @@
   }
 }
 
+@media only screen and (max-width: 450px) {
+  .video-lge {
+    min-width: 200px;
+  }
+}
+
 @media only screen and (max-width: 376px) {
   .subfeature-text {
     font-size: 0.9rem !important;
@@ -79,9 +85,6 @@
     width: 100%;
     min-width: 200px;
     min-height: 120px;
-  }
-  .video-lge {
-    min-width: 200px;
   }
   img.youtube-thumb {
     min-width: 200px;
