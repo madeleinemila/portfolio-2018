@@ -13,7 +13,7 @@ const graphGenerator = function(sketch) {
           // let count = 0;
           let seed;
           let particles = new Array(40);
-
+          const maxParticles = 100;
 
 
           // ******* Helper Functions ****************************************************
@@ -88,8 +88,8 @@ const graphGenerator = function(sketch) {
 
             // populate particles arrays
             for (let i = 0; i < particles.length; i++) {
-              let pos = Math.floor( Math.random() * sketch.width );
-              let vel = Math.random() * 2 - 1;
+              let pos = generatePos();
+              let vel = generateVel();
               particles[i] = new Particle( pos, yCenter, 255, Math.abs( vel ) * 3, vel);  // using velocity to generate size; further away = tinier = slower, like real distance. idea: could do inverse, like bokeh
             }
 
@@ -166,42 +166,66 @@ const graphGenerator = function(sketch) {
               if (p.y > 0 && p.y < sketch.height) {
                 p.y += p.vel;
                 if (p.a > 0) {
-                  p.a -= Math.abs( p.vel );
+                  // if p.vel is positive, i.e. particles going down, need to make them fade quicker
+                  // cos graph x axis is closer to bottom than to top
+                  if (p.vel > 0) {
+                      p.a -= Math.abs( p.vel ) * 3;
+                  } else {
+                      p.a -= Math.abs( p.vel );
+                  }
                 }
                 p.draw();
               }
             });
 
             if (smoothScrolling) {
-              for (let i = 0; i < 20; i++) {
+              for (let i = 0; i < 30; i++) {
                 makeParticle();
               }
               smoothScrolling = false;
             }
 
             // remove dead particles
-            particles = particles.filter(function(p) {
-              return p.y > 0 && p.y < sketch.height;
-            });
+            particles = particles.filter(isAlive);
+          }
+
+          function isAlive( particle ) {
+            if (particle.y < 0 || particle.y > sketch.height) {
+              return false;
+            }
+            if (particle.a < 40) {  // if opacity is low
+              return false;
+            }
+            return true;
           }
 
           function makeParticle() {
-            let pos = Math.floor( Math.random() * sketch.width );
-            let vel = Math.random() * 2 - 1;
+            let pos = generatePos();
+            let vel = generateVel();
             particles.push( new Particle( pos, yCenter, 255, Math.abs( vel ) * 3, vel) );
+          }
+
+          function generatePos() {
+            return Math.floor( Math.random() * sketch.width );
+          }
+
+          function generateVel() {
+            let vel = Math.random() * 2 - 1;
+            if (vel < 0.1 && vel > -0.1) vel += 0.5;  // filter out really slow velocities
+            return vel;
           }
 
           //// ******* ON SCROLL *********
           sketch.mouseWheel = function() {
-            if (particles.length < 60) {
+            if (particles.length < maxParticles) {
               makeParticle();
             }
           }
 
           /// ****** ON SHAKE **********
           sketch.deviceShaken = function() {
-            for (let i = 0; i < 10; i++) {
-              if (particles.length < 70) {
+            if (particles.length < maxParticles) {
+              for (let i = 0; i < 10; i++) {
                 makeParticle();
               }
             }
@@ -209,7 +233,7 @@ const graphGenerator = function(sketch) {
 
           ///// ****** ON SHAKE **********
           sketch.deviceMoved = function() {
-            if (particles.length < 60) {
+            if (particles.length < maxParticles) {
               makeParticle();
             }
           };
