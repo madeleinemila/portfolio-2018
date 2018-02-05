@@ -231,7 +231,7 @@ const graphGenerator = function(sketch) {
             }
           };
 
-          ///// ****** ON SHAKE **********
+          ///// ****** ON MOVE **********
           sketch.deviceMoved = function() {
             if (particles.length < maxParticles) {
               makeParticle();
