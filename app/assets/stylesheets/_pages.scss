@@ -220,6 +220,10 @@ ul {
   text-decoration: underline;
 }
 
+.no-bullet {
+  list-style-type: none;
+}
+
 // **** flex area ****
 
 .flex-container {
@@ -305,7 +309,7 @@ img.profile {
   &:hover {
     .thumb-label {
         // for highlight effect
-        background-position: -100% 0;
+        background-position: -99% 0;
     }
   }
 }
@@ -325,7 +329,7 @@ img.profile {
   // for highlight
   // background: linear-gradient(to right, rgba(255,255,255,0) 50%, rgba(0, 234, 178, 1.0) 50%);
   background: linear-gradient(to right, rgba(255,255,255,0) 50%, darken( rgb(255, 228, 228), 10%) 50%);
-  background-size: 200%;
+  background-size: 202%;
   background-position: 0 0;
   -webkit-transition: 0.5s ease-in-out;
   -moz-transition: 0.5s ease-in-out;
