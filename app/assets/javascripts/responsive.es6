@@ -53,7 +53,7 @@ const resizeRotateContainer = function() {
 const resizeByline = function() {
   if (window.innerWidth < newLineBreakPoint) {
     const byline = document.getElementsByClassName('home-byline')[0];
-    byline.innerHTML = "WEB DEVELOPER";
+    byline.innerHTML = "SOFTWARE ENGINEER";
   }
 };
 
