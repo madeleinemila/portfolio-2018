@@ -38,12 +38,12 @@ const newLineBreakPoint = 800;
 const resizeRotateContainer = function() {
   if (window.innerWidth < newLineBreakPoint) { //  breakpoint for text to new line
     const container = document.getElementById('rotate-container');
-    container.innerHTML = `During a career in film, television and live entertainment, I saw firsthand many tech transitions:<br /><span class="rotate" id="rotateTech">from cables to web GUIs.</span>`;
+    container.innerHTML = `Before software, my career was in film, television and live entertainment. There I saw firsthand many tech transitions:<br /><span class="rotate" id="rotateTech">from cables to web GUIs.</span>`;
     const $rotateTech = $('#rotateTech');
     fadeLoop( $rotateTech, tech );
   } else {
     const container = document.getElementById('rotate-container');
-    container.innerHTML = `During a career in film, television and live entertainment, I saw firsthand many tech transitions: <span class="rotate" id="rotateTech">from cables to web GUIs.</span>`;
+    container.innerHTML = `Before software, my career was in film, television and live entertainment. There I saw firsthand many tech transitions: <span class="rotate" id="rotateTech">from cables to web GUIs.</span>`;
     const $rotateTech = $('#rotateTech');
     fadeLoop( $rotateTech, tech );
   }
